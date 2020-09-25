@@ -13,6 +13,9 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
   },
+  "engines": {
+    "node": "10.16.0"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
