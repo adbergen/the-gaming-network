@@ -14,9 +14,17 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/journal/bootstrap.min.css"
     />
     <title>React Gaming List</title>
+    <script src="https://cdn.auth0.com/js/auth0/9.8.1/auth0.min.js"></script>
   </head>
 
   <body>
+    <script type="text/javascript">
+      const webAuth = new auth0.WebAuth({
+        domain: "dev-m84-ys1b.us.auth0.com",
+        clientID: "MvMmAmet3jhn3vqw9VIySNCVFczk1Jfd",
+      });
+      webAuth.popup.callback();
+    </script>
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <div id="root"></div>
   </body>

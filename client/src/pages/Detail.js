@@ -5,6 +5,7 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 
 function Detail(props) {
+  console.log("Detail");
   const [game, setGame] = useState({});
 
   // When this component mounts, grab the book with the _id of props.match.params.id
