@@ -1,6 +1,9 @@
 import axios from "axios";
 
 export default {
+  searchChicken: function (title) {
+    return axios.get("/api/chicken/" + title)
+  },
   // Gets all books
   getGames: function () {
     return axios.get("/api/games");
@@ -18,3 +21,5 @@ export default {
     return axios.post("/api/games", gameData);
   },
 };
+
+
