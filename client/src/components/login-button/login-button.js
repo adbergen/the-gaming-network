@@ -11,7 +11,7 @@ const LoginButton = () => {
       variant="primary"
       className="btn-margin"
     >
-      Log In
+      Sign up or Log In
     </Button>
   );
 };

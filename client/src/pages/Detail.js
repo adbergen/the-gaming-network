@@ -15,7 +15,7 @@ function Detail(props) {
     API.getGame(id)
       .then((res) => setGame(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   return (
     <Container fluid>

@@ -12,7 +12,7 @@ Project 3
 <br>
 </div>
 <p align="center"><font size="3">
-This is a project 3 application.</p>
+This is a application.</p>
 <div align="center"><a name="menu"></a>
   <h4>
     <a href="https://github.com/adbergen/project-3">
@@ -63,6 +63,7 @@ Using npm:
 <li>Javascript, jQuery</li>
 <li>React, node.js, Express</li>
 <li>GitHub, Heroku</li>
+<li>Socket.io, Auth0</li>
 </ul>
 
 <hr>
@@ -71,6 +72,6 @@ Using npm:
 
 - Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-- Contributors: Anthony Bergen
+- Contributors: Anthony Bergen, Hojin, Miguel, & Kristian
 
 <hr><hr>
