@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const http = require("http").Server(app);
+const socket = require("socket.io");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -16,9 +18,24 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gamesplayed");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
 
 // Start the API server
-app.listen(PORT, function () {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+server = app.listen(PORT, () => {
+  console.log(`App listening on PORT: ${PORT}`);
+});
+
+io = socket(server);
+
+io.on("connection", (socket) => {
+  console.log(socket.id);
+
+  socket.on("SEND_MESSAGE", function (data) {
+    io.emit("RECEIVE_MESSAGE", data);
+  });
 });

@@ -15,10 +15,10 @@ function Games() {
   // Load all books and store them with setBooks
   useEffect(() => {
     loadGames();
-    
+
     API.searchChicken("starcraft")
-    .then(result => console.log(result.data))
-    .catch((err) => console.log(err));
+      .then((result) => console.log(result.data))
+      .catch((err) => console.log(err));
   }, []);
 
   // Loads all books and sets them to books
