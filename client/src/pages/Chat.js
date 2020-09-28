@@ -91,74 +91,82 @@ const PartnerMessage = styled.div`
   border-bottom-left-radius: 10%;
 `;
 
-const Chat = () => {
-  const [yourID, setYourID] = useState();
-  const [messages, setMessages] = useState([]);
-  const [message, setMessage] = useState("");
-
-  const socketRef = useRef();
-
-  useEffect(() => {
-    socketRef.current = io.connect("/chat");
-
-    socketRef.current.on("your id", (id) => {
-      setYourID(id);
-    });
-
-    socketRef.current.on("message", (message) => {
-      console.log("here");
-      receivedMessage(message);
-    });
-  }, []);
-
-  function receivedMessage(message) {
-    setMessages((oldMsgs) => [...oldMsgs, message]);
-  }
-
-  function sendMessage(e) {
-    e.preventDefault();
-    const messageObject = {
-      body: message,
-      id: yourID,
+class Chat extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      message: "",
+      messages: [],
     };
-    setMessage("");
-    socketRef.current.emit("send message", messageObject);
+    this.socket = io("localhost:3000");
+    this.socket.on("RECEIVE_MESSAGE", function (data) {
+      addMessage(data);
+    });
+    const addMessage = (data) => {
+      console.log(data);
+      this.setState({ messages: [...this.state.messages, data] });
+      console.log(this.state.messages);
+    };
+    this.sendMessage = (ev) => {
+      ev.preventDefault();
+      this.socket.emit("SEND_MESSAGE", {
+        author: this.state.username,
+        message: this.state.message,
+      });
+      this.setState({ message: "" });
+    };
   }
-
-  function handleChange(e) {
-    setMessage(e.target.value);
+  render() {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-4">
+            <div className="card">
+              <div className="card-body">
+                <div className="card-title">Global Chat</div>
+                <hr />
+                <div className="messages">
+                  {this.state.messages.map((message) => {
+                    return (
+                      <div>
+                        {message.author}: {message.message}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="card-footer">
+                <input
+                  type="text"
+                  placeholder="Username"
+                  value={this.state.username}
+                  onChange={(ev) =>
+                    this.setState({ username: ev.target.value })
+                  }
+                  className="form-control"
+                />
+                <br />
+                <input
+                  type="text"
+                  placeholder="Message"
+                  className="form-control"
+                  value={this.state.message}
+                  onChange={(ev) => this.setState({ message: ev.target.value })}
+                />
+                <br />
+                <button
+                  onClick={this.sendMessage}
+                  className="btn btn-primary form-control"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
-
-  return (
-    <Page>
-      <br />
-      <h1>Game Chat</h1>
-      <Container>
-        {messages.map((message, index) => {
-          if (message.id === yourID) {
-            return (
-              <MyRow key={index}>
-                <MyMessage>{message.body}</MyMessage>
-              </MyRow>
-            );
-          }
-          return (
-            <PartnerRow key={index}>
-              <PartnerMessage>{message.body}</PartnerMessage>
-            </PartnerRow>
-          );
-        })}
-      </Container>
-      <Form onSubmit={sendMessage}>
-        <TextArea
-          value={message}
-          onChange={handleChange}
-          placeholder="Say something..."
-        />
-        <Button>Send</Button>
-      </Form>
-    </Page>
-  );
-};
-
+}
 export default Chat;
