@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 const http = require("http").Server(app);
 const socket = require("socket.io");
 
@@ -33,7 +33,7 @@ server = app.listen(PORT, () => {
 io = socket(server);
 
 io.on("connection", (socket) => {
-  console.log(socket.id);
+  console.log("It's connected", socket.id);
 
   socket.on("SEND_MESSAGE", function (data) {
     io.emit("RECEIVE_MESSAGE", data);
