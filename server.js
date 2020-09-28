@@ -8,8 +8,6 @@ const PORT = process.env.PORT || 8080;
 const http = require("http").Server(app);
 const socket = require("socket.io");
 
-//Static file declarationapp.use(express.static(path.join(__dirname, 'client/build')));
-
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,6 +24,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user", {
   useFindAndModify: false,
   useUnifiedTopology: true,
   useCreateIndex: true,
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 // Start the API server
