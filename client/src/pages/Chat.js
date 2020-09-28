@@ -99,7 +99,9 @@ class Chat extends React.Component {
       message: "",
       messages: [],
     };
-    this.socket = io("localhost:3000");
+    this.socket = io(
+      "localhost:3000" || "https://good-game2020.herokuapp.com/"
+    );
     this.socket.on("RECEIVE_MESSAGE", function (data) {
       addMessage(data);
     });
