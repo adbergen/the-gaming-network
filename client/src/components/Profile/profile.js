@@ -12,7 +12,7 @@ const Profile = () => {
 
   return (
     isAuthenticated && (
-      <div class="justfiy-content-end">
+      <div className="justfiy-content-end">
         <br />
         <img
           src={profile}
