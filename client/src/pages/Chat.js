@@ -131,6 +131,8 @@ const Chat = () => {
 
   return (
     <Page>
+      <br />
+      <h1>Game Chat</h1>
       <Container>
         {messages.map((message, index) => {
           if (message.id === yourID) {

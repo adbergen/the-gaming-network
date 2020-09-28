@@ -8,7 +8,7 @@ const LogoutButton = () => {
     <Button
       onClick={() => logout()}
       id="qsLogoutBtn"
-      variant="primary"
+      variant="light"
       className="btn-margin"
     >
       Log Out
