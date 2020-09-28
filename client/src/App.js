@@ -7,6 +7,7 @@ import Chat from "./pages/Chat";
 import NoMatch from "./pages/NoMatch";
 import NavBar from "./components/Nav/nav-bar";
 import Loading from "./components/Loading/loading";
+import Home from "./pages/Home";
 
 const App = () => {
   const { isLoading } = useAuth0();
@@ -20,7 +21,10 @@ const App = () => {
       <div>
         <NavBar />
         <Switch>
-          <Route exact path={["/", "/games"]}>
+          <Route exact path={["/", "/home"]}>
+            <Home />
+          </Route>
+          <Route exact path={["/dashboard", "/games"]}>
             <Games />
           </Route>
           <Route exact path="/games/:id">
