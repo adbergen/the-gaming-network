@@ -3,9 +3,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const path = require("path");
 const PORT = process.env.PORT || 8080;
 const http = require("http").Server(app);
 const socket = require("socket.io");
+
+//Static file declarationapp.use(express.static(path.join(__dirname, 'client/build')));
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
