@@ -99,7 +99,11 @@ class Chat extends React.Component {
       message: "",
       messages: [],
     };
+<<<<<<< HEAD
     this.socket = io("https://good-game2020.herokuapp.com/");
+=======
+    this.socket = io("localhost:3000");
+>>>>>>> 4b54b34385418d91a20cbfc6748acfb8a479155c
     this.socket.on("RECEIVE_MESSAGE", function (data) {
       addMessage(data);
     });
@@ -120,11 +124,14 @@ class Chat extends React.Component {
   render() {
     return (
       <div className="container">
+        <br />
         <div className="row">
-          <div className="col-4">
+          <div className="col-6">
             <div className="card">
               <div className="card-body">
-                <div className="card-title">Global Chat</div>
+                <div className="card-title">
+                  <strong>Game Chat</strong>
+                </div>
                 <hr />
                 <div className="messages">
                   {this.state.messages.map((message) => {
@@ -158,6 +165,7 @@ class Chat extends React.Component {
                 <button
                   onClick={this.sendMessage}
                   className="btn btn-primary form-control"
+                  id="send"
                 >
                   Send
                 </button>
