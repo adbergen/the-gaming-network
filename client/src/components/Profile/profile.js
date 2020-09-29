@@ -20,8 +20,10 @@ const Profile = () => {
           style={{ height: "auto", width: "5%" }}
         />
         <br />
-        <h2 style={{ color: "white", fontSize: "12px" }}>{user.name}</h2>
-        <p style={{ color: "white", fontSize: "12px" }}>{user.email}</p>
+        <h2 style={{ color: "black", fontSize: "12px" }}>Name: {user.name}</h2>
+        <h2 style={{ color: "black", fontSize: "12px" }}>
+          Email: {user.email}
+        </h2>
       </div>
     )
   );
