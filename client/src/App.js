@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import Games from "./pages/Games";
+import Dashboard from "./pages/Dashboard";
 import Detail from "./pages/Detail";
 import Chat from "./pages/Chat";
 import NoMatch from "./pages/NoMatch";
@@ -25,9 +25,9 @@ const App = () => {
             <Home />
           </Route>
           <Route exact path={["/dashboard", "/games"]}>
-            <Games />
+            <Dashboard />
           </Route>
-          <Route exact path="/games/:id">
+          <Route exact path="/dashboard/:id">
             <Detail />
           </Route>
           <Route exact path={("/", "/chat")}>
