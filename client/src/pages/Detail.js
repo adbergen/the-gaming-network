@@ -9,7 +9,7 @@ function Detail(props) {
   const [game, setGame] = useState({});
 
   // When this component mounts, grab the book with the _id of props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+  // e.g. localhost:3000/games/599dcb67f0f16317844583fc
   const { id } = useParams();
   useEffect(() => {
     API.getGame(id)
@@ -23,7 +23,7 @@ function Detail(props) {
         <Col size="md-12">
           <Jumbotron>
             <h1>
-              {game.title} by {game.author}
+              {game.title} by {game.platform}
             </h1>
           </Jumbotron>
         </Col>

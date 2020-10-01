@@ -5,13 +5,13 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, FormBtn } from "../components/Form";
 import styled from "styled-components";
 
 import Card from "react-bootstrap/Card";
-import CardColumns from "react-bootstrap/CardColumns";
+// import CardColumns from "react-bootstrap/CardColumns";
 // import CardRows from "react-bootstrap/CardRows";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 // import GameCard from "../components/GameCard";
 
 import Profile from "../components/Profile/profile";
@@ -30,23 +30,24 @@ function Dashboard() {
   const [games, setGames] = useState([]);
   const [formObject, setFormObject] = useState({});
 
-  // Load all books and store them with setBooks
+  // Load all games and store them with setgames
   useEffect(() => {
     loadGames();
-
-    API.searchChicken("starcraft")
-      .then((result) => console.log(result.data))
-      .catch((err) => console.log(err));
   }, []);
 
-  // Loads all books and sets them to books
+  // Loads all games and sets them to games
   function loadGames() {
+    console.log("loadGames");
     API.getGames()
-      .then((res) => setGames(res.data))
+      .then((res) => {
+        console.log("API getGames res.data", res.data);
+        console.log("API getGames res", res);
+        setGames(res.data);
+      })
       .catch((err) => console.log(err));
   }
 
-  // Deletes a book from the database with a given id, then reloads books from the db
+  // Deletes a game from the database with a given id, then reloads games from the db
   function deleteGame(id) {
     API.deleteGame(id)
       .then((res) => loadGames())
@@ -59,15 +60,15 @@ function Dashboard() {
     setFormObject({ ...formObject, [name]: value });
   }
 
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
+  // When the form is submitted, use the API.savegame method to save the game data
+  // Then reload games from the database
+
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.title && formObject.author) {
+    if (formObject.title && formObject.platform) {
       API.saveGame({
         title: formObject.title,
-        author: formObject.author,
-        synopsis: formObject.synopsis,
+        platform: formObject.platform,
       })
         .then((res) => loadGames())
         .catch((err) => console.log(err));
@@ -80,7 +81,6 @@ function Dashboard() {
         <Row>
           <Col size="md-12">
             <br />
-
             <Card style={{ padding: "5%" }}>
               <Profile />
             </Card>
@@ -100,7 +100,7 @@ function Dashboard() {
                 />
                 <Input
                   onChange={handleInputChange}
-                  name="author"
+                  name="platform"
                   placeholder="Platform (required)"
                 />
                 {/* <TextArea
@@ -109,7 +109,7 @@ function Dashboard() {
                 placeholder="Synopsis (Optional)"
               /> */}
                 <FormBtn
-                  disabled={!(formObject.author && formObject.title)}
+                  disabled={!(formObject.platform && formObject.title)}
                   onClick={handleFormSubmit}
                 >
                   Submit Game
@@ -127,58 +127,7 @@ function Dashboard() {
                     <ListItem key={game._id}>
                       <Link to={"/dashboard/" + game._id}>
                         <strong>
-                          {game.title} by {game.author}
-                        </strong>
-                      </Link>
-                      <DeleteBtn onClick={() => deleteGame(game._id)} />
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
-            </Card>
-          </Col>
-          <Col size="md-2">
-            <br />
-            <Card style={{ padding: "5%", backgroundColor: "#f99e1a" }}>
-              <h1>What Games Have I Played?</h1>
-              <form>
-                <Input
-                  onChange={handleInputChange}
-                  name="title"
-                  placeholder="Game Title (required)"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="author"
-                  placeholder="Platform (required)"
-                />
-                {/* <TextArea
-                onChange={handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
-              /> */}
-                <FormBtn
-                  disabled={!(formObject.author && formObject.title)}
-                  onClick={handleFormSubmit}
-                >
-                  Submit Game
-                </FormBtn>
-              </form>
-            </Card>
-          </Col>
-          <Col size="md-2">
-            <br />
-            <Card style={{ padding: "5%", backgroundColor: "#f99e1a" }}>
-              <h1>Games On My List :</h1>
-              {games.length ? (
-                <List>
-                  {games.map((game) => (
-                    <ListItem key={game._id}>
-                      <Link to={"/dashboard/" + game._id}>
-                        <strong>
-                          {game.title} by {game.author}
+                          {game.title} by {game.platform}
                         </strong>
                       </Link>
                       <DeleteBtn onClick={() => deleteGame(game._id)} />
@@ -219,5 +168,4 @@ function Dashboard() {
     </Page>
   );
 }
-
 export default Dashboard;
