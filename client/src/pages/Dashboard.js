@@ -17,12 +17,10 @@ import Card from "react-bootstrap/Card";
 import Profile from "../components/Profile/profile";
 
 const Page = styled.div`
-  display: flex;
   height: 100vh;
-  width: 100%;
-  align-items: center;
-  background-color: #abdd16;
-  flex-direction: column;
+  background: radial-gradient(circle at 20%, #bdbdbd -60%, #512da8 100%);
+  overflow: hidden;
+  animation: up 3s 10s cubic-bezier(0.76, 0, 0.24, 1) forwards;
 `;
 
 function Dashboard() {
@@ -90,7 +88,7 @@ function Dashboard() {
         <Row>
           <Col size="md-2">
             <br />
-            <Card style={{ padding: "5%", backgroundColor: "#f99e1a" }}>
+            <Card style={{ padding: "5%", backgroundColor: "#DCDCDC" }}>
               <h1>What Games Should I Play?</h1>
               <form>
                 <Input
@@ -119,7 +117,7 @@ function Dashboard() {
           </Col>
           <Col size="md-2">
             <br />
-            <Card style={{ padding: "5%", backgroundColor: "#f99e1a" }}>
+            <Card style={{ padding: "5%", backgroundColor: "#DCDCDC" }}>
               <h1>Games On My List :</h1>
               {games.length ? (
                 <List>
@@ -142,7 +140,7 @@ function Dashboard() {
           <Col size="md-4">
             <br />
 
-            <Card style={{ padding: "5%", backgroundColor: "#f99e1a" }}>
+            <Card style={{ padding: "5%", backgroundColor: "#DCDCDC" }}>
               n government has maintained an uneasy peace. As resources run
               short, however, these Confederate nations find themselves looking
               towards the rich worlds of their alien neighbors, the enigmatic

@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+.page_2 {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  position: relative;
+}
+
+.page_2 .first,
+.page_2 .mid,
+.page_2 .last {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: motion 8s 5s forwards;
+}
+
+@keyframes motion {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-40px);
+  }
+}
+
+.page_2 .first {
+  width: 50%;
+  border-right: 1px solid rgba(204, 204, 204, 0.2);
+}
+
+.page_2 .mid {
+  width: 25%;
+  border-right: 1px solid rgba(204, 204, 204, 0.2);
+}
+
+.page_2 .last {
+  width: 25%;
+}
+
+.page_2 .mid .mid_image {
+  position: absolute;
+  height: 270px;
+  top: 40%;
+  width: 100%;
+  background-image: url("../../img/pic3.jpg");
+  background-size: cover;
+  background-position: top 10% center;
+}
+
+.page_2 .last .last_heading {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  padding: 0 16px;
+  font-size: 0.7rem;
+  font-weight: 400;
+  top: 30%;
+  position: absolute;
+  width: 80%;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+}
+
+.page_2 .last .last_heading span {
+  display: block;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 6px;
+  letter-spacing: 3px;
+}
+
+.page_2 .last .last_card {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  position: absolute;
+  top: 82%;
+}
+
+.page_2 .last .last_card .last_card_title {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  margin-top: 24px;
+  margin-left: 24px;
+  font-weight: 500;
+}
+
+.page_2 .last .last_card .last_card_title span {
+  font-weight: 700;
+}
+
+.page_2 .last .last_card .last_card_arrow {
+  text-align: right;
+  margin-right: 20px;
+}
+
+.page_2 .last .last_card .last_card_arrow span {
+  font-size: 1.4rem;
+  color: #546e7a;
+  cursor: pointer;
+}
+
+.page_2 .first .first_index {
+  position: absolute;
+  right: 2%;
+  top: 10%;
+}
+
+.page_2 .first .first_index div {
+  color: white;
+  font-size: 8rem;
+  font-weight: 800;
+  line-height: 0.9;
+}

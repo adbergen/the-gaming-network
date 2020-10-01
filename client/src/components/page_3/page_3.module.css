@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+.page_3 {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  position: relative;
+}
+
+.page_3 .first,
+.page_3 .mid,
+.page_3 .last {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: motion 8s 10s forwards;
+}
+
+@keyframes motion {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-40px);
+  }
+}
+
+.page_3 .first,
+.page_3 .mid {
+  width: 25%;
+  border-right: 1px solid rgba(204, 204, 204, 0.2);
+}
+
+.page_3 .last {
+  width: 50%;
+}
+
+.page_3 .first .first_image {
+  position: absolute;
+  height: 270px;
+  top: 20%;
+  width: 100%;
+  background-image: url("../../img/pic5.jpg");
+  background-size: cover;
+  background-position: top 40% left 60%;
+}
+
+.page_3 .first .first_heading {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  padding: 0 1px;
+  font-size: 0.7rem;
+  font-weight: 400;
+  top: 65%;
+  position: absolute;
+  width: 80%;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+}
+
+.page_3 .first .first_heading span {
+  display: block;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 6px;
+  letter-spacing: 3px;
+}
+
+.page_3 .mid .mid_index {
+  position: absolute;
+  left: 10%;
+  top: 20%;
+}
+
+.page_3 .mid .mid_index div {
+  color: white;
+  font-size: 8rem;
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+.page_3 .mid .mid_heading {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  padding: 0 1px;
+  font-size: 0.7rem;
+  font-weight: 400;
+  top: 76%;
+  position: absolute;
+  width: 96%;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+}
+
+.page_3 .last .last_card {
+  width: 56%;
+  height: 100px;
+  background-color: white;
+  position: absolute;
+  top: 74%;
+  right: 5%;
+}
+
+.page_3 .last .last_card .last_card_title {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  margin-top: 24px;
+  margin-left: 24px;
+  font-weight: 500;
+}
+
+.page_3 .last .last_card .last_card_title span {
+  font-weight: 700;
+}
+
+.page_3 .last .last_card .last_card_arrow {
+  text-align: right;
+  margin-right: 20px;
+}
+
+.page_3 .last .last_card .last_card_arrow span {
+  font-size: 1.4rem;
+  color: #546e7a;
+  cursor: pointer;
+}
