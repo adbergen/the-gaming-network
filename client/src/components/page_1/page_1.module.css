@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+.page_1 {
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+  position: relative;
+}
+
+.page_1 .first,
+.page_1 .mid,
+.page_1 .last {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: motion 8s 2s forwards;
+}
+
+@keyframes motion {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-40px);
+  }
+}
+
+.page_1 .first,
+.page_1 .mid {
+  width: 25%;
+  border-right: 1px solid rgba(204, 204, 204, 0.2);
+}
+
+.page_1 .last {
+  width: 50%;
+}
+
+.page_1 .first .first_heading {
+  position: absolute;
+  top: 20%;
+}
+
+.page_1 .first .first_heading div {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-size: 3.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.page_1 .first .first_image {
+  position: absolute;
+  height: 140px;
+  top: 60%;
+  width: 100%;
+  background-image: url("../../img/pic3.jpg");
+  background-size: cover;
+  background-position: top 40% center;
+}
+
+.page_1 .mid .mid_heading {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  padding: 0 16px;
+  font-size: 0.7rem;
+  font-weight: 400;
+  top: 40%;
+  position: absolute;
+  width: 80%;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+}
+
+.page_1 .mid .mid_card {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  position: absolute;
+  top: 82%;
+}
+
+.page_1 .mid .mid_card .mid_card_title {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  margin-top: 24px;
+  margin-left: 24px;
+  font-weight: 500;
+}
+
+.page_1 .mid .mid_card .mid_card_title span {
+  font-weight: 700;
+}
+
+.page_1 .mid .mid_card .mid_card_arrow {
+  text-align: right;
+  margin-right: 20px;
+}
+
+.page_1 .mid .mid_card .mid_card_arrow span {
+  font-size: 1.4rem;
+  color: #546e7a;
+  cursor: pointer;
+}
+
+.page_1 .last div {
+  position: absolute;
+  top: 70%;
+  right: 5%;
+  color: white;
+  font-size: 8rem;
+  font-weight: 800;
+}
