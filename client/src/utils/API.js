@@ -1,25 +1,29 @@
 import axios from "axios";
 
 export default {
-  searchChicken: function (title) {
-    return axios.get("/api/chicken/" + title)
-  },
-  // Gets all books
+  // Gets all games
   getGames: function () {
+    console.log("getGames");
     return axios.get("/api/games");
   },
-  // Gets the book with the given id
+  // Gets the game with the given id
   getGame: function (id) {
+    console.log("getGame", id);
     return axios.get("/api/games/" + id);
   },
-  // Deletes the book with the given id
+  // Deletes the game with the given id
   deleteGame: function (id) {
     return axios.delete("/api/games/" + id);
   },
-  // Saves a book to the database
+  // Saves a game to the database
   saveGame: function (gameData) {
+    console.log("saveGame", gameData);
     return axios.post("/api/games", gameData);
   },
+  // getTitle: function (title, platform) {
+  //   return axios.post("/api/games/title", {
+  //     title: title,
+  //     platform: platform,
+  //   });
+  // },
 };
-
-

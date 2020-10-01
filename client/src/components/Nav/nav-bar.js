@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../logout-button/logout-button";
 import LoginButton from "../login-button/login-button";
@@ -11,9 +11,6 @@ import Image from "react-bootstrap/Image";
 
 import Profile from "../Profile/profile";
 const MainNav = () => (
-  
-  
-  
   <Nav className="mr-auto">
     <Image
       className="logo"
@@ -27,7 +24,7 @@ const MainNav = () => (
       exact
       activeClassName="router-link-exact-active"
       style={{ color: "white" }}
-    > 
+    >
       Home
     </Nav.Link>
     <Nav.Link
@@ -39,23 +36,26 @@ const MainNav = () => (
     >
       Dashboard
     </Nav.Link>
-    <NavDropdown 
-    title="Chat" 
-    id="collasible-nav-dropdown"
-    style={{ color: "white" }}>
-        <NavDropdown.Item 
+    <NavDropdown
+      title="Chat"
+      id="collasible-nav-dropdown"
+      style={{ color: "white" }}
+    >
+      <NavDropdown.Item
         as={RouterNavLink}
-    to="/chat"
-    exact
-    activeClassName="router-link-exact-active"
-        href="/chat">Global</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.2">Battle Royal</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">MMO</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.4">Single Player</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.4">Call of Duty</NavDropdown.Item>
-
-      </NavDropdown>
+        to="/chat"
+        exact
+        activeClassName="router-link-exact-active"
+        href="/chat"
+      >
+        Global
+      </NavDropdown.Item>
+      <NavDropdown.Divider />
+      <NavDropdown.Item href="#action/3.2">Battle Royal</NavDropdown.Item>
+      <NavDropdown.Item href="#action/3.3">MMO</NavDropdown.Item>
+      <NavDropdown.Item href="#action/3.4">Single Player</NavDropdown.Item>
+      <NavDropdown.Item href="#action/3.4">Call of Duty</NavDropdown.Item>
+    </NavDropdown>
     {/* <Nav.Link
       as={RouterNavLink}
       to="/chat"

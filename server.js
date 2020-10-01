@@ -21,20 +21,21 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user", {
   useNewUrlParser: true,
-  useFindAndModify: false,
+  useFindAndModify: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 // Start the API server
 server = app.listen(PORT, () => {
   console.log(`App listening on PORT: ${PORT}`);
 });
 
+// socket.io chat server
 io = socket(server);
 
 io.on("connection", (socket) => {
