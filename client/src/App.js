@@ -9,6 +9,7 @@ import NavBar from "./components/Nav/nav-bar";
 import Loading from "./components/Loading/loading";
 import Home from "./pages/Home";
 import ExternalApi from "./views/external-api";
+import ChatDashboard from "./components/ChatDashboard/index";
 
 const App = () => {
   const { isLoading, isAuthenticated, user } = useAuth0();
@@ -37,7 +38,9 @@ const App = () => {
           )}
           {isAuthenticated && (
             <Route exact path={("/", "/chat")}>
-              <Chat />
+              <Chat>
+                <ChatDashboard />
+              </Chat>
             </Route>
           )}
           <Route exact path={"/external-api"}>

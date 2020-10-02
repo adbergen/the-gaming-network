@@ -2,94 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import io from "socket.io-client";
 
-// const Page = styled.div`
-//   display: flex;
-//   height: 100vh;
-//   width: 100%;
-//   align-items: center;
-//   background-color: #46516e;
-//   flex-direction: column;
-// `;
-
-// const Container = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   height: 500px;
-//   max-height: 500px;
-//   overflow: auto;
-//   width: 400px;
-//   border: 1px solid lightgray;
-//   border-radius: 10px;
-//   padding-bottom: 10px;
-//   margin-top: 25px;
-// `;
-
-// const TextArea = styled.textarea`
-//   width: 98%;
-//   height: 100px;
-//   border-radius: 10px;
-//   margin-top: 10px;
-//   padding-left: 10px;
-//   padding-top: 10px;
-//   font-size: 17px;
-//   background-color: transparent;
-//   border: 1px solid lightgray;
-//   outline: none;
-//   color: lightgray;
-//   letter-spacing: 1px;
-//   line-height: 20px;
-//   ::placeholder {
-//     color: lightgray;
-//   }
-// `;
-
-// const Button = styled.button`
-//   background-color: pink;
-//   width: 100%;
-//   border: none;
-//   height: 50px;
-//   border-radius: 10px;
-//   color: #46516e;
-//   font-size: 17px;
-// `;
-
-// const Form = styled.form`
-//   width: 400px;
-// `;
-
-// const MyRow = styled.div`
-//   width: 100%;
-//   display: flex;
-//   justify-content: flex-end;
-//   margin-top: 10px;
-// `;
-
-// const MyMessage = styled.div`
-//   width: 45%;
-//   background-color: pink;
-//   color: #46516e;
-//   padding: 10px;
-//   margin-right: 5px;
-//   text-align: center;
-//   border-top-right-radius: 10%;
-//   border-bottom-right-radius: 10%;
-// `;
-
-// const PartnerRow = styled(MyRow)`
-//   justify-content: flex-start;
-// `;
-
-// const PartnerMessage = styled.div`
-//   width: 45%;
-//   background-color: transparent;
-//   color: lightgray;
-//   border: 1px solid lightgray;
-//   padding: 10px;
-//   margin-left: 5px;
-//   text-align: center;
-//   border-top-left-radius: 10%;
-//   border-bottom-left-radius: 10%;
-// `;
+export const CTX = React.createContext();
 
 const Page = styled.div`
   height: 100vh;
@@ -97,90 +10,83 @@ const Page = styled.div`
   overflow: hidden;
 `;
 
-class Chat extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      message: "",
-      messages: [],
-    };
-    this.socket = io("localhost:3000");
-    this.socket.on("RECEIVE_MESSAGE", function (data) {
-      addMessage(data);
-    });
-    const addMessage = (data) => {
-      console.log(data);
-      this.setState({ messages: [...this.state.messages, data] });
-      console.log(this.state.messages);
-    };
-    this.sendMessage = (ev) => {
-      ev.preventDefault();
-      this.socket.emit("SEND_MESSAGE", {
-        platform: this.state.username,
-        message: this.state.message,
-      });
-      this.setState({ message: "" });
-    };
-  }
-  render() {
-    return (
-      <Page>
-        <div className="container">
-          <br />
-          <div className="row">
-            <div className="col-6">
-              <div className="card">
-                <div className="card-body">
-                  <div className="card-title">
-                    <strong>Game Chat</strong>
-                  </div>
-                  <hr />
-                  <div className="messages">
-                    {this.state.messages.map((message) => {
-                      return (
-                        <div>
-                          {message.platform}: {message.message}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="card-footer">
-                  <input
-                    type="text"
-                    placeholder="Username"
-                    value={this.state.username}
-                    onChange={(ev) =>
-                      this.setState({ username: ev.target.value })
-                    }
-                    className="form-control"
-                  />
-                  <br />
-                  <input
-                    type="text"
-                    placeholder="Message"
-                    className="form-control"
-                    value={this.state.message}
-                    onChange={(ev) =>
-                      this.setState({ message: ev.target.value })
-                    }
-                  />
-                  <br />
-                  <button
-                    onClick={this.sendMessage}
-                    className="btn btn-primary form-control"
-                    id="send"
-                  >
-                    Send
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Page>
-    );
+const initState = {
+  Global: [
+    { from: "Miguel", msg: "Did you guys see the trailer for cyberpunk?" },
+    {
+      from: "Ant",
+      msg:
+        "Hell yeah! I cannot wait to play it! I hope they do not push the release data back again",
+    },
+    { from: "Hojin", msg: "Whats up nerds" },
+  ],
+  FindPlayers: [
+    { from: "Hojin", msg: "Who wants to play Among Us?" },
+    { from: "Miguel", msg: "Ill play! Its so much fun being the imposter." },
+    { from: "Ant", msg: "Whats your steam Id? I want to play with you guys" },
+    {
+      from: "Kristen",
+      msg: "Do you need more players? I have 2 with me who want to play",
+    },
+  ],
+  MMO: [
+    { from: "Bobby", msg: "World of Warcraft is the best MMO of all time" },
+    { from: "Ana", msg: "NO WAY Elder Scrolls Online is superior" },
+    { from: "Miguel", msg: "Who is old enought to remember PSU?" },
+  ],
+  Retro: [
+    {
+      from: "Thomas",
+      msg:
+        "I am going to start a playthrough of Zelda: Ocarina of Time. Heres my Twitch name: tTank420",
+    },
+    {
+      from: "Kimberly",
+      msg:
+        "Does anyone know where I can get SNES ROMS? I am dying to play some Super Mario World",
+    },
+    {
+      from: "Jack2",
+      msg:
+        "Im hosting a Mele tourny at my local shop. Anyone from Union County NJ want to participate? ",
+    },
+  ],
+};
+
+function reducer(state, action) {
+  const { from, msg, topic } = action.payload;
+
+  switch (action.type) {
+    case "RECEIVE_MESSAGE":
+      return {
+        ...state,
+        [topic]: [...state[topic], { from, msg }],
+      };
+    default:
+      return state;
   }
 }
-export default Chat;
+
+let socket;
+
+function sendChatAction(value) {
+  socket.emit("chat message", value);
+}
+
+export default function Store(props) {
+  const [allChats, dispatch] = React.useReducer(reducer, initState);
+
+  if (!socket) {
+    socket = io(":8080");
+    socket.on("chat message", function (msg) {
+      dispatch({ type: "RECEIVE_MESSAGE", payload: msg });
+    });
+  }
+  const user = "Miguel" + Math.random(100).toFixed(2);
+
+  return (
+    <CTX.Provider value={{ allChats, sendChatAction, user }}>
+      {props.children}
+    </CTX.Provider>
+  );
+}

@@ -38,9 +38,9 @@ server = app.listen(PORT, () => {
 io = socket(server);
 
 io.on("connection", (socket) => {
-  console.log("It's connected", socket.id);
-
-  socket.on("SEND_MESSAGE", function (data) {
-    io.emit("RECEIVE_MESSAGE", data);
+  console.log("a user connected");
+  socket.on("chat message", (msg) => {
+    console.log("message: " + JSON.stringify(msg));
+    io.emit("chat message", msg);
   });
 });
