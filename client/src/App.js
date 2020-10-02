@@ -8,6 +8,7 @@ import NoMatch from "./pages/NoMatch";
 import NavBar from "./components/Nav/nav-bar";
 import Loading from "./components/Loading/loading";
 import Home from "./pages/Home";
+import ExternalApi from "./views/external-api";
 
 const App = () => {
   const { isLoading } = useAuth0();
@@ -32,6 +33,9 @@ const App = () => {
           </Route>
           <Route exact path={("/", "/chat")}>
             <Chat />
+          </Route>
+          <Route exact path={"/external-api"}>
+            <ExternalApi />
           </Route>
           <Route>
             <NoMatch />

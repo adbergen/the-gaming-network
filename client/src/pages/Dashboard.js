@@ -14,7 +14,7 @@ import Card from "react-bootstrap/Card";
 // import Button from "react-bootstrap/Button";
 // import GameCard from "../components/GameCard";
 
-import Profile from "../components/Profile/profile";
+import Profile from "../views/profile";
 
 const Page = styled.div`
   height: 100vh;
