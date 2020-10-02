@@ -11,6 +11,10 @@ router
   .post(gamesController.saveGame)
   .put(gamesController.update)
   .delete(gamesController.remove);
+    
+  router
+  .route("/user/:email")
+  .get(gamesController.findAllbyUser);
 
 // Matches with "/api/games/:id"
 router

@@ -7,6 +7,8 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 import styled from "styled-components";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 import Card from "react-bootstrap/Card";
 // import CardColumns from "react-bootstrap/CardColumns";
@@ -26,7 +28,10 @@ const Page = styled.div`
 function Dashboard() {
   // Setting our component's initial state
   const [games, setGames] = useState([]);
+
   const [formObject, setFormObject] = useState({});
+  const {user} = useAuth0()
+  user && console.log(user)
 
   // Load all games and store them with setgames
   useEffect(() => {
@@ -36,7 +41,7 @@ function Dashboard() {
   // Loads all games and sets them to games
   function loadGames() {
     console.log("loadGames");
-    API.getGames()
+    user && API.getGamesByUser(user.email)
       .then((res) => {
         console.log("API getGames res.data", res.data);
         console.log("API getGames res", res);
@@ -67,6 +72,7 @@ function Dashboard() {
       API.saveGame({
         title: formObject.title,
         platform: formObject.platform,
+        userEmail: user.email,
       })
         .then((res) => loadGames())
         .catch((err) => console.log(err));
