@@ -1,8 +1,7 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import profile from "../../assets/profile.png";
-import Card from "react-bootstrap/Card";
+import profile from "./../assets/profile.png";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();

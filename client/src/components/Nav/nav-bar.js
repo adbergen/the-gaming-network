@@ -7,7 +7,7 @@ import LoginButton from "../login-button/login-button";
 import "./style.css";
 import logo from "../../assets/logo.webp";
 import Image from "react-bootstrap/Image";
-import ProfileWelcome from "../ProfileWelcome/profilewelcome";
+import ProfileWelcome from "../../views/profilewelcome";
 
 const MainNav = () => {
   const { isAuthenticated } = useAuth0();
@@ -48,6 +48,14 @@ const MainNav = () => {
           Dashboard
         </Nav.Link>
       )}
+      {/* <Nav.Link
+        as={RouterNavLink}
+        to="/external-api"
+        exact
+        activeClassName="router-link-exact-active"
+      >
+        External API
+      </Nav.Link> */}
       {isAuthenticated && (
         <NavDropdown
           title="Chat"
