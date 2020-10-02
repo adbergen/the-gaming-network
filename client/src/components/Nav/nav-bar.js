@@ -5,7 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../logout-button/logout-button";
 import LoginButton from "../login-button/login-button";
 import "./style.css";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.webp";
 import Image from "react-bootstrap/Image";
 import ProfileWelcome from "../ProfileWelcome/profilewelcome";
 
@@ -13,12 +13,19 @@ const MainNav = () => {
   const { isAuthenticated } = useAuth0();
   return (
     <Nav className="mr-auto">
-      <Image
-        className="logo"
-        src={logo}
-        roundedCircle
-        style={{ height: "auto", width: "20%" }}
-      />
+      <Nav.Link
+        as={RouterNavLink}
+        to="/"
+        exact
+        activeClassName="router-link-exact-active"
+        style={{ color: "white" }}
+      >
+        <Image
+          className="logo"
+          src={logo}
+          // style={{ height: "auto", width: "20%" }}
+        />
+      </Nav.Link>
       {isAuthenticated && (
         <Nav.Link
           as={RouterNavLink}
@@ -138,7 +145,7 @@ const ProfileNav = () => {
 };
 const NavBar = () => {
   return (
-    <Navbar bg="dark" expand="md">
+    <Navbar bg="dark" expand="md" sticky="top" opacity="60">
       <Navbar.Brand as={RouterNavLink} className="logo" to="/" />
       <MainNav />
       <ProfileNav />

@@ -79,9 +79,11 @@ function Dashboard() {
         <Row>
           <Col size="md-12">
             <br />
-            <Card style={{ padding: "5%" }}>
-              <Profile />
-            </Card>
+            <Container>
+              <Card style={{ padding: "5%" }}>
+                <Profile />
+              </Card>
+            </Container>
           </Col>
         </Row>
 
