@@ -48,14 +48,14 @@ const MainNav = () => {
           Dashboard
         </Nav.Link>
       )}
-      <Nav.Link
+      {/* <Nav.Link
         as={RouterNavLink}
         to="/external-api"
         exact
         activeClassName="router-link-exact-active"
       >
         External API
-      </Nav.Link>
+      </Nav.Link> */}
       {isAuthenticated && (
         <NavDropdown
           title="Chat"
