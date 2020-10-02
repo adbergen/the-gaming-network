@@ -11,8 +11,8 @@ import Home from "./pages/Home";
 import ExternalApi from "./views/external-api";
 
 const App = () => {
-  const { isLoading } = useAuth0();
-
+  const { isLoading, isAuthenticated, user } = useAuth0();
+  console.log(isAuthenticated, user, useAuth0());
   if (isLoading) {
     return <Loading />;
   }
@@ -25,18 +25,25 @@ const App = () => {
           <Route exact path={["/", "/home"]}>
             <Home />
           </Route>
-          <Route exact path={["/dashboard", "/games"]}>
-            <Dashboard />
-          </Route>
-          <Route exact path="/dashboard/:id">
-            <Detail />
-          </Route>
-          <Route exact path={("/", "/chat")}>
-            <Chat />
-          </Route>
+          {isAuthenticated && (
+            <Route exact path={["/dashboard", "/games"]}>
+              <Dashboard />
+            </Route>
+          )}
+          {isAuthenticated && (
+            <Route exact path="/dashboard/:id">
+              <Detail />
+            </Route>
+          )}
+          {isAuthenticated && (
+            <Route exact path={("/", "/chat")}>
+              <Chat />
+            </Route>
+          )}
           <Route exact path={"/external-api"}>
             <ExternalApi />
           </Route>
+          <Route component={Home} />
           <Route>
             <NoMatch />
           </Route>

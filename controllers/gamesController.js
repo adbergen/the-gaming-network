@@ -2,7 +2,7 @@ const db = require("../models");
 const axios = require("axios");
 const data = "";
 
-async function gameSearch(title, platform) {
+async function gameSearch({title, platform, userEmail}) {
   // axios getting chicken coop api
   console.log("gameSearch title:", title, " platform:", platform);
   var URL =
@@ -29,6 +29,7 @@ async function gameSearch(title, platform) {
       title: result.title,
       description: result.description,
       releaseDate: result.releaseDate,
+      userEmail: userEmail,
     });
   } catch (error) {
     console.log(error);
@@ -68,6 +69,19 @@ module.exports = {
         res.status(422).json(err);
       });
   },
+  findAllbyUser: function (req, res) {
+    console.log("findAllbyUser");
+    db.Game.find({userEmail:req.params.email})
+      .sort({ date: -1 })
+      .then((dbModel) => {
+        console.log("Find All dbModel", dbModel);
+        res.json(dbModel);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(422).json(err);
+      });
+  },
   findById: function (req, res) {
     db.Game.findById(req.params.id)
       .then((dbModel) => res.json(dbModel))
@@ -91,7 +105,7 @@ module.exports = {
   },
   saveGame: async function (req, res) {
     console.log("saveGame req.body", req.body);
-    var dbResult = await gameSearch(req.body.title, req.body.platform);
+    var dbResult = await gameSearch(req.body);
     console.log("saveGame dbResult", dbResult);
     return res.json(dbResult);
 
