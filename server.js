@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const path = require("path");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 const http = require("http").Server(app);
 const socket = require("socket.io");
 
