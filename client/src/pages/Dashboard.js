@@ -5,48 +5,52 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, FormBtn } from "../components/Form";
 import styled from "styled-components";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 import Card from "react-bootstrap/Card";
-import CardColumns from "react-bootstrap/CardColumns";
+// import CardColumns from "react-bootstrap/CardColumns";
 // import CardRows from "react-bootstrap/CardRows";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 // import GameCard from "../components/GameCard";
 
 import Profile from "../components/Profile/profile";
 
 const Page = styled.div`
-  display: flex;
   height: 100vh;
-  width: 100%;
-  align-items: center;
-  background-color: #abdd16;
-  flex-direction: column;
+  background: radial-gradient(circle at 20%, #bdbdbd -60%, #512da8 100%);
+  overflow: hidden;
+  animation: up 3s 10s cubic-bezier(0.76, 0, 0.24, 1) forwards;
 `;
 
 function Dashboard() {
   // Setting our component's initial state
   const [games, setGames] = useState([]);
-  const [formObject, setFormObject] = useState({});
 
-  // Load all books and store them with setBooks
+  const [formObject, setFormObject] = useState({});
+  const {user} = useAuth0()
+  user && console.log(user)
+
+  // Load all games and store them with setgames
   useEffect(() => {
     loadGames();
-
-    API.searchChicken("starcraft")
-      .then((result) => console.log(result.data))
-      .catch((err) => console.log(err));
   }, []);
 
-  // Loads all books and sets them to books
+  // Loads all games and sets them to games
   function loadGames() {
-    API.getGames()
-      .then((res) => setGames(res.data))
+    console.log("loadGames");
+    user && API.getGamesByUser(user.email)
+      .then((res) => {
+        console.log("API getGames res.data", res.data);
+        console.log("API getGames res", res);
+        setGames(res.data);
+      })
       .catch((err) => console.log(err));
   }
 
-  // Deletes a book from the database with a given id, then reloads books from the db
+  // Deletes a game from the database with a given id, then reloads games from the db
   function deleteGame(id) {
     API.deleteGame(id)
       .then((res) => loadGames())
@@ -59,15 +63,16 @@ function Dashboard() {
     setFormObject({ ...formObject, [name]: value });
   }
 
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
+  // When the form is submitted, use the API.savegame method to save the game data
+  // Then reload games from the database
+
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.title && formObject.author) {
+    if (formObject.title && formObject.platform) {
       API.saveGame({
         title: formObject.title,
-        author: formObject.author,
-        synopsis: formObject.synopsis,
+        platform: formObject.platform,
+        userEmail: user.email,
       })
         .then((res) => loadGames())
         .catch((err) => console.log(err));
@@ -80,17 +85,18 @@ function Dashboard() {
         <Row>
           <Col size="md-12">
             <br />
-
-            <Card style={{ padding: "5%" }}>
-              <Profile />
-            </Card>
+            <Container>
+              <Card style={{ padding: "5%" }}>
+                <Profile />
+              </Card>
+            </Container>
           </Col>
         </Row>
 
         <Row>
           <Col size="md-2">
             <br />
-            <Card style={{ padding: "5%", backgroundColor: "#f99e1a" }}>
+            <Card style={{ padding: "5%", backgroundColor: "#DCDCDC" }}>
               <h1>What Games Should I Play?</h1>
               <form>
                 <Input
@@ -100,7 +106,7 @@ function Dashboard() {
                 />
                 <Input
                   onChange={handleInputChange}
-                  name="author"
+                  name="platform"
                   placeholder="Platform (required)"
                 />
                 {/* <TextArea
@@ -109,7 +115,7 @@ function Dashboard() {
                 placeholder="Synopsis (Optional)"
               /> */}
                 <FormBtn
-                  disabled={!(formObject.author && formObject.title)}
+                  disabled={!(formObject.platform && formObject.title)}
                   onClick={handleFormSubmit}
                 >
                   Submit Game
@@ -119,7 +125,7 @@ function Dashboard() {
           </Col>
           <Col size="md-2">
             <br />
-            <Card style={{ padding: "5%", backgroundColor: "#f99e1a" }}>
+            <Card style={{ padding: "5%", backgroundColor: "#DCDCDC" }}>
               <h1>Games On My List :</h1>
               {games.length ? (
                 <List>
@@ -127,58 +133,7 @@ function Dashboard() {
                     <ListItem key={game._id}>
                       <Link to={"/dashboard/" + game._id}>
                         <strong>
-                          {game.title} by {game.author}
-                        </strong>
-                      </Link>
-                      <DeleteBtn onClick={() => deleteGame(game._id)} />
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
-            </Card>
-          </Col>
-          <Col size="md-2">
-            <br />
-            <Card style={{ padding: "5%", backgroundColor: "#f99e1a" }}>
-              <h1>What Games Have I Played?</h1>
-              <form>
-                <Input
-                  onChange={handleInputChange}
-                  name="title"
-                  placeholder="Game Title (required)"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="author"
-                  placeholder="Platform (required)"
-                />
-                {/* <TextArea
-                onChange={handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
-              /> */}
-                <FormBtn
-                  disabled={!(formObject.author && formObject.title)}
-                  onClick={handleFormSubmit}
-                >
-                  Submit Game
-                </FormBtn>
-              </form>
-            </Card>
-          </Col>
-          <Col size="md-2">
-            <br />
-            <Card style={{ padding: "5%", backgroundColor: "#f99e1a" }}>
-              <h1>Games On My List :</h1>
-              {games.length ? (
-                <List>
-                  {games.map((game) => (
-                    <ListItem key={game._id}>
-                      <Link to={"/dashboard/" + game._id}>
-                        <strong>
-                          {game.title} by {game.author}
+                          {game.title} by {game.platform}
                         </strong>
                       </Link>
                       <DeleteBtn onClick={() => deleteGame(game._id)} />
@@ -193,7 +148,7 @@ function Dashboard() {
           <Col size="md-4">
             <br />
 
-            <Card style={{ padding: "5%", backgroundColor: "#f99e1a" }}>
+            <Card style={{ padding: "5%", backgroundColor: "#DCDCDC" }}>
               n government has maintained an uneasy peace. As resources run
               short, however, these Confederate nations find themselves looking
               towards the rich worlds of their alien neighbors, the enigmatic
@@ -219,5 +174,4 @@ function Dashboard() {
     </Page>
   );
 }
-
 export default Dashboard;

@@ -1,0 +1,77 @@
+.page_2 {
+  height: 100vh;
+  background: radial-gradient(circle at 20%, #bdbdbd -60%, #512da8 100%);
+  overflow: hidden;
+  animation: up 3s 10s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes up {
+  from {
+    height: 100vh;
+  }
+  to {
+    height: 0vh;
+  }
+}
+
+.page_2 img {
+  width: 54%;
+  position: fixed;
+  right: 50%;
+  bottom: -8%;
+  transform: rotateY(180deg);
+  opacity: 0;
+  animation: appear 9s 4s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  perspective-origin: bottom;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: rotateY(180deg) rotateX(0deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(180deg) rotateX(20deg);
+  }
+}
+
+.page_2 .container {
+  display: flex;
+  flex-direction: row;
+}
+
+.page_2 .container .first,
+.page_2 .container .mid,
+.page_2 .container .last {
+  height: 100vh;
+  z-index: 4;
+}
+
+.page_2 .container .first .page_2 .container .last {
+  flex-grow: 1;
+}
+
+.page_2 .container .mid {
+  flex-grow: 2;
+}
+
+.page_2 .container .first {
+  width: 12%;
+  border-right: 1px solid rgba(204, 204, 204, 0.2);
+  position: relative;
+}
+
+.page_2 .container .last {
+  width: 12%;
+  border-left: 1px solid rgba(204, 204, 204, 0.2);
+  position: relative;
+}
+
+.page_2 .container .mid {
+  width: 100%;
+  position: relative;
+}

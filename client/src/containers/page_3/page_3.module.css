@@ -1,0 +1,66 @@
+.page_3 {
+  height: 100vh;
+  background: radial-gradient(circle at 70%, #bdbdbd -60%, #1565c0 100%);
+  overflow: hidden;
+}
+
+.page_3 img {
+  width: 54%;
+  position: fixed;
+  bottom: -44%;
+  left: 50%;
+  opacity: 0;
+  animation: appear 7s 10s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  perspective-origin: bottom;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: rotateX(0deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(16deg);
+  }
+}
+
+.page_3 .container {
+  display: flex;
+  flex-direction: row;
+}
+
+.page_3 .container .first,
+.page_3 .container .mid,
+.page_3 .container .last {
+  height: 100vh;
+  z-index: 4;
+}
+
+.page_3 .container .first .page_3 .container .last {
+  flex-grow: 1;
+}
+
+.page_3 .container .mid {
+  flex-grow: 2;
+}
+
+.page_3 .container .first {
+  width: 12%;
+  border-right: 1px solid rgba(204, 204, 204, 0.2);
+  position: relative;
+}
+
+.page_3 .container .last {
+  width: 12%;
+  border-left: 1px solid rgba(204, 204, 204, 0.2);
+  position: relative;
+}
+
+.page_3 .container .mid {
+  width: 100%;
+  position: relative;
+}

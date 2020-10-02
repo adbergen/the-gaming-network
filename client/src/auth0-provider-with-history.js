@@ -9,7 +9,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
   // const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   // const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
   const domain = "dev-m84-ys1b.us.auth0.com";
-  const clientId = "MvMmAmet3jhn3vqw9VIySNCVFczk1Jfd";
+  const clientId = "hpq8xmhLqeXu9u36j2w0ZrVEjMS10vL9";
   console.log("domain", domain);
   console.log("clientId", clientId);
   const history = useHistory();
@@ -17,6 +17,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
 
   const onRedirectCallback = (appState) => {
     console.log("onRedirectCallback", appState);
+    
     history.push(appState?.returnTo || window.location.pathname);
   };
 

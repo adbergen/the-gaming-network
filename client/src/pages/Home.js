@@ -1,34 +1,32 @@
-import React from "react";
-import Jumbotron from "../components/Jumbotron";
-import { Col, Row, Container } from "../components/Grid";
+import React, { useState, useEffect } from "react";
 
-import styled from "styled-components";
+import "./Home.css";
 
-const Page = styled.div`
-  display: flex;
-  height: 100vh;
-  width: 100%;
-  align-items: center;
-  background-color: #46516e;
-  flex-direction: column;
-`;
+import Page1 from "../containers/page_1/page_1";
+import Page2 from "../containers/page_2/page_2";
+import Page3 from "../containers/page_3/page_3";
 
 function Home() {
-  return (
-    <Page>
-      <br />
-      <h1>Good Game</h1>
-      <Container>
-        <Row>
-          <Col size="md-12">
-            <br />
+  const [repeat, setRepeat] = useState(true);
+  const recursiveFunc = () => {
+    setRepeat(true);
+    setTimeout(() => {
+      setRepeat(false);
+      recursiveFunc();
+    }, 18000);
+  };
 
-            <Jumbotron></Jumbotron>
-          </Col>
-        </Row>
-      </Container>
-    </Page>
-  );
+  useEffect(() => {
+    recursiveFunc();
+  }, []);
+
+  return repeat ? (
+    <div className="App">
+      <Page1 />
+      <Page2 />
+      <Page3 />
+    </div>
+  ) : null;
 }
 
 export default Home;
