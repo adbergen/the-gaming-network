@@ -104,7 +104,14 @@ function Dashboard() {
         <Row>
           <Col size="md-3">
             <br />
-            <Card style={{ padding: "5%", backgroundColor: "#DCDCDC" }}>
+            <Card
+              style={{
+                padding: "5%",
+                backgroundColor: "#DCDCDC",
+                borderWidth: 1,
+                borderColor: "black",
+              }}
+            >
               <h1>What Games Should I Play?</h1>
               <form>
                 <Input
@@ -128,7 +135,14 @@ function Dashboard() {
           </Col>
           <Col size="md-3">
             <br />
-            <Card style={{ padding: "5%", backgroundColor: "#DCDCDC" }}>
+            <Card
+              style={{
+                padding: "5%",
+                backgroundColor: "#DCDCDC",
+                borderWidth: 1,
+                borderColor: "black",
+              }}
+            >
               <h1>Games On My List :</h1>
               {games.length ? (
                 <List>
@@ -149,6 +163,7 @@ function Dashboard() {
             </Card>
           </Col>
           <Col size="md-6">
+            <br />
             <Chat>
               <ChatDashboard />
             </Chat>

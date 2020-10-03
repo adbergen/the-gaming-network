@@ -14,7 +14,7 @@ import { CTX } from "../ChatMessages";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: "50px",
+    // margin: "50px",
     padding: theme.spacing(3, 2),
   },
   flex: {
