@@ -10,7 +10,7 @@ import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-import { CTX } from "../../pages/Chat";
+import { CTX } from "../ChatMessages";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,7 +56,7 @@ export default function Dashboard() {
     <div>
       <Paper className={classes.root}>
         <Typograpghy variant="h4" component="h4">
-          GG CHAT
+          Game Chat
         </Typograpghy>
 
         <Typograpghy variant="h5" component="h5">

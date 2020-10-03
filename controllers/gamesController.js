@@ -2,7 +2,7 @@ const db = require("../models");
 const axios = require("axios");
 const data = "";
 
-async function gameSearch({title, platform, userEmail}) {
+async function gameSearch({ title, platform, userEmail }) {
   // axios getting chicken coop api
   console.log("gameSearch title:", title, " platform:", platform);
   var URL =
@@ -29,6 +29,12 @@ async function gameSearch({title, platform, userEmail}) {
       title: result.title,
       description: result.description,
       releaseDate: result.releaseDate,
+      score: result.score,
+      developer: result.developer,
+      publisher: result.publisher[0],
+      genre: result.genre[0],
+      rating: result.rating,
+      platform: platform,
       userEmail: userEmail,
     });
   } catch (error) {
@@ -71,7 +77,7 @@ module.exports = {
   },
   findAllbyUser: function (req, res) {
     console.log("findAllbyUser");
-    db.Game.find({userEmail:req.params.email})
+    db.Game.find({ userEmail: req.params.email })
       .sort({ date: -1 })
       .then((dbModel) => {
         console.log("Find All dbModel", dbModel);
