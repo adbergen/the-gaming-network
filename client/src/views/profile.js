@@ -12,19 +12,28 @@ const Profile = () => {
 
   return (
     isAuthenticated && (
-      <div className="justfiy-content-end">
-        <br />
+      <>
+        <h3>Welcome to your Profile</h3>
         <img
-          src={profile}
+          src={user.picture}
           alt={user.name}
-          style={{ height: "auto", width: "5%" }}
+          style={{
+            height: "auto",
+            width: "5%",
+            borderRadius: 50,
+
+            // position: "absolute",
+            // top: 0,
+            // left: 0,
+          }}
         />
-        <br />
-        <h2 style={{ color: "black", fontSize: "12px" }}>Name: {user.name}</h2>
-        <h2 style={{ color: "black", fontSize: "12px" }}>
+        <h2 style={{ color: "black", fontSize: "14px", paddingTop: "1%" }}>
+          Name: {user.name}
+        </h2>
+        <h2 style={{ color: "black", fontSize: "14px" }}>
           Email: {user.email}
         </h2>
-      </div>
+      </>
     )
   );
 };

@@ -8,8 +8,9 @@ import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
-
-
+import Chat from "../components/ChatMessages";
+import ChatDashboard from "../components/ChatDashboard";
+import InputGroup from "react-bootstrap/InputGroup";
 import Card from "react-bootstrap/Card";
 // import CardColumns from "react-bootstrap/CardColumns";
 // import CardRows from "react-bootstrap/CardRows";
@@ -19,7 +20,7 @@ import Card from "react-bootstrap/Card";
 import Profile from "../views/profile";
 
 const Page = styled.div`
-  height: 100vh;
+  height: 95vh;
   background: radial-gradient(circle at 20%, #bdbdbd -60%, #512da8 100%);
   overflow: hidden;
   animation: up 3s 10s cubic-bezier(0.76, 0, 0.24, 1) forwards;
@@ -30,8 +31,8 @@ function Dashboard() {
   const [games, setGames] = useState([]);
 
   const [formObject, setFormObject] = useState({});
-  const {user} = useAuth0()
-  user && console.log(user)
+  const { user } = useAuth0();
+  user && console.log(user);
 
   // Load all games and store them with setgames
   useEffect(() => {
@@ -41,13 +42,14 @@ function Dashboard() {
   // Loads all games and sets them to games
   function loadGames() {
     console.log("loadGames");
-    user && API.getGamesByUser(user.email)
-      .then((res) => {
-        console.log("API getGames res.data", res.data);
-        console.log("API getGames res", res);
-        setGames(res.data);
-      })
-      .catch((err) => console.log(err));
+    user &&
+      API.getGamesByUser(user.email)
+        .then((res) => {
+          console.log("API getGames res.data", res.data);
+          console.log("API getGames res", res);
+          setGames(res.data);
+        })
+        .catch((err) => console.log(err));
   }
 
   // Deletes a game from the database with a given id, then reloads games from the db
@@ -83,18 +85,24 @@ function Dashboard() {
     <Page>
       <Container fluid>
         <Row>
-          <Col size="md-12">
+          <Col size="md-6">
             <br />
-            <Container>
-              <Card style={{ padding: "5%" }}>
-                <Profile />
-              </Card>
-            </Container>
+            <Card
+              style={{
+                paddingLeft: "1%",
+                backgroundColor: "#DCDCDC",
+                borderWidth: 1,
+                borderColor: "black",
+                // width: "50rem",
+              }}
+            >
+              <Profile />
+            </Card>
           </Col>
         </Row>
 
         <Row>
-          <Col size="md-2">
+          <Col size="md-3">
             <br />
             <Card style={{ padding: "5%", backgroundColor: "#DCDCDC" }}>
               <h1>What Games Should I Play?</h1>
@@ -109,11 +117,6 @@ function Dashboard() {
                   name="platform"
                   placeholder="Platform (required)"
                 />
-                {/* <TextArea
-                onChange={handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
-              /> */}
                 <FormBtn
                   disabled={!(formObject.platform && formObject.title)}
                   onClick={handleFormSubmit}
@@ -123,7 +126,7 @@ function Dashboard() {
               </form>
             </Card>
           </Col>
-          <Col size="md-2">
+          <Col size="md-3">
             <br />
             <Card style={{ padding: "5%", backgroundColor: "#DCDCDC" }}>
               <h1>Games On My List :</h1>
@@ -145,29 +148,10 @@ function Dashboard() {
               )}
             </Card>
           </Col>
-          <Col size="md-4">
-            <br />
-
-            <Card style={{ padding: "5%", backgroundColor: "#DCDCDC" }}>
-              n government has maintained an uneasy peace. As resources run
-              short, however, these Confederate nations find themselves looking
-              towards the rich worlds of their alien neighbors, the enigmatic
-              Protoss. To further complicate matters, it seems that a previously
-              unknown and deadly species known only as the Zerg has entered
-              Protoss space and is destroying everything in its path. The time
-              for war has come... As the military leader for your species, you
-              must gather the resources you need to train and expand your forces
-              and lead them to victory. 30 unique missions will chaln government
-              has maintained an uneasy peace. As resources run short, however,
-              these Confederate nations find themselves looking towards the rich
-              worlds of their alien neighbors, the enigmatic Protoss. To further
-              complicate matters, it seems that a previously unknown and deadly
-              species known only as the Zerg has entered Protoss space and is
-              destroying everything in its path. The time for war has come... As
-              the military leader for your species, you must gather the
-              resources you need to train and expand your forces and lead them
-              to victory. 30 unique missions will chal
-            </Card>
+          <Col size="md-6">
+            <Chat>
+              <ChatDashboard />
+            </Chat>
           </Col>
         </Row>
       </Container>

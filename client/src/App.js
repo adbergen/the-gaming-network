@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Dashboard from "./pages/Dashboard";
 import Detail from "./pages/Detail";
-import Chat from "./pages/Chat";
+
 import NoMatch from "./pages/NoMatch";
 import NavBar from "./components/Nav/nav-bar";
 import Loading from "./components/Loading/loading";
 import Home from "./pages/Home";
 import ExternalApi from "./views/external-api";
-import ChatDashboard from "./components/ChatDashboard/index";
 
 const App = () => {
   const { isLoading, isAuthenticated, user } = useAuth0();
@@ -36,13 +35,13 @@ const App = () => {
               <Detail />
             </Route>
           )}
-          {isAuthenticated && (
+          {/* {isAuthenticated && (
             <Route exact path={("/", "/chat")}>
               <Chat>
                 <ChatDashboard />
               </Chat>
             </Route>
-          )}
+          )} */}
           <Route exact path={"/external-api"}>
             <ExternalApi />
           </Route>

@@ -4,6 +4,7 @@ import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import styled from "styled-components";
+import Card from "react-bootstrap/Card";
 
 const Page = styled.div`
   height: 100vh;
@@ -31,23 +32,41 @@ function Detail(props) {
         <Row>
           <Col size="md-12">
             <br />
-            <Jumbotron>
+            <Card style={{ padding: "1%", backgroundColor: "#DCDCDC" }}>
               <h1>
-                {game.title} by {game.platform}
+                <strong>Title:</strong> {game.title}
               </h1>
-            </Jumbotron>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-10 md-offset-1">
-            <article>
-              <h1>Synopsis</h1>
-              <p>{game.synopsis}</p>
-            </article>
+              <br />
+              <p>
+                <strong>Platform:</strong> {game.platform}
+              </p>
+              <p>
+                <strong>Description:</strong> {game.description}
+              </p>
+              <p>
+                <strong>Release Date:</strong> {game.releaseDate}
+              </p>
+              <p>
+                <strong>Score:</strong> {game.score}/100
+              </p>
+              <p>
+                <strong>Developer:</strong> {game.developer}
+              </p>
+              <p>
+                <strong>Publisher:</strong> {game.publisher}
+              </p>
+              <p>
+                <strong>Genre:</strong> {game.genre}
+              </p>
+              <p>
+                <strong>Rating:</strong> {game.rating}
+              </p>
+            </Card>
           </Col>
         </Row>
         <Row>
           <Col size="md-2">
+            <br />
             <Link to="/dashboard">← Back to Dashboard</Link>
           </Col>
         </Row>
