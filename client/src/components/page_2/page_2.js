@@ -7,8 +7,8 @@ const page_2 = (props) => {
     <div className={styles.page_2}>
       <div className={styles.first}>
         <div className={styles.first_index}>
-          <div>0</div>
-          <div>2</div>
+          <div>MEET</div>
+          <div>GAMERS</div>
         </div>
       </div>
       <div className={styles.mid}>
@@ -16,11 +16,10 @@ const page_2 = (props) => {
       </div>
       <div className={styles.last}>
         <div className={styles.last_heading}>
-          <span>LID</span>
-          The dress, which happens to intregate real circuits, detects the level
-          of CO2 concentration in air.
+          <span>CONNECT</span>
+          Meet fellow gamers that play the games you love.
         </div>
-        <div className={styles.last_card}>
+        {/* <div className={styles.last_card}>
           <div className={styles.last_card_title}>
             Check out our new <br></br>
             <span>collection</span>
@@ -28,7 +27,7 @@ const page_2 = (props) => {
           <div className={styles.last_card_arrow}>
             <span className="fa fa-long-arrow-right"></span>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

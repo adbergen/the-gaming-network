@@ -5,11 +5,11 @@ import styles from "./mid.module.css";
 const mid = (props) => {
   return (
     <div className={styles.mid}>
-      <div className={styles.logo}>PER</div>
+      <div className={styles.logo}>TGN</div>
       <div className={styles.menu}>
-        <div>NEW</div>
-        <div>CLOTHES</div>
-        <div>BAGS</div>
+        <div>MEET GAMERS</div>
+        <div>FIND GAMES</div>
+        <div>HAVE FUN</div>
       </div>
     </div>
   );

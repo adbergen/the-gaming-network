@@ -9,21 +9,21 @@ const page_3 = (props) => {
       <div className={styles.first}>
         <div className={styles.first_image}></div>
         <div className={styles.first_heading}>
-          <span>CONF</span>A delicate dress covered with mettalic threads, wires
-          and blinking lights.
+          <span>GAME ROOM</span>A place to visit the games you've played,
+          playing, and would like to play.
         </div>
       </div>
       <div className={styles.mid}>
         <div className={styles.mid_index}>
-          <div>0</div>
-          <div>3</div>
+          <div>FIND</div>
+          <div>GAMES</div>
         </div>
-        <div className={styles.mid_heading}>
+        {/* <div className={styles.mid_heading}>
           This is the clubbing type of dress, for if you feel like escaping
           mysteriously when someone approches you.
-        </div>
+        </div> */}
       </div>
-      <div className={styles.last}>
+      {/* <div className={styles.last}>
         <div className={styles.last_card}>
           <div className={styles.last_card_title}>
             Check out our new <br></br>
@@ -33,7 +33,7 @@ const page_3 = (props) => {
             <span className="fa fa-long-arrow-right"></span>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
