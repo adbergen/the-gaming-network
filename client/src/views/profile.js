@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import profile from "./../assets/profile.png";
+// import profile from "./../assets/profile.png";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -13,7 +13,7 @@ const Profile = () => {
   return (
     isAuthenticated && (
       <>
-        <h3>Welcome to your Profile</h3>
+        <h2>Welcome to your Profile</h2>
         <img
           src={user.picture}
           alt={user.name}
@@ -30,8 +30,11 @@ const Profile = () => {
         <h2 style={{ color: "black", fontSize: "14px", paddingTop: "1%" }}>
           Name: {user.name}
         </h2>
-        <h2 style={{ color: "black", fontSize: "14px" }}>
-          Email: {user.email}
+        <h2 style={{ color: "black", fontSize: "14px", marginBottom: "-2%" }}>
+          Email: {user.email}{" "}
+          <p style={{ float: "right", textAlign: "right", paddingRight: "1%" }}>
+            Member since: 20'
+          </p>
         </h2>
       </>
     )
