@@ -19,7 +19,7 @@ const Profile = () => {
           alt={user.name}
           style={{
             height: "auto",
-            width: "5%",
+            width: "10%",
             borderRadius: 50,
 
             // position: "absolute",
@@ -32,7 +32,9 @@ const Profile = () => {
         </h2>
         <h2 style={{ color: "black", fontSize: "14px", marginBottom: "-2%" }}>
           Email: {user.email}{" "}
-          <p style={{ float: "right", textAlign: "right", paddingRight: "1%" }}>
+          <p
+            style={{ float: "right", imageAlign: "right", paddingRight: "1%" }}
+          >
             Member since: 20'
           </p>
         </h2>

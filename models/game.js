@@ -11,6 +11,7 @@ const gameSchema = new Schema({
   publisher: { type: String },
   genre: { type: String },
   rating: { type: String },
+  image: { data: Buffer, contentType: String },
   platform: { type: String },
   userEmail: {
     type: String,
