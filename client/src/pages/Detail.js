@@ -80,6 +80,9 @@ function Detail(props) {
               <p>
                 <strong>Rating:</strong> {game.rating}
               </p>
+              <p>
+                <strong>Image:</strong> {game.image}
+              </p>
             </div>
           </div>
         </Col>

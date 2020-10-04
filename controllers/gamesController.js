@@ -33,6 +33,7 @@ async function gameSearch({ title, platform, userEmail }) {
       developer: result.developer,
       publisher: result.publisher[0],
       genre: result.genre[0],
+      image: result.image,
       rating: result.rating,
       platform: platform,
       userEmail: userEmail,

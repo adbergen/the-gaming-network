@@ -6,26 +6,32 @@ import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
-import styled from "styled-components";
+// import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import Chat from "../components/ChatMessages";
 import ChatDashboard from "../components/ChatDashboard";
 import Card from "react-bootstrap/Card";
 import { MDBContainer } from "mdbreact";
 import Badge from "../assets/badge.png";
+import { PayPalButton } from "react-paypal-button-v2";
+import Background from "../assets/poster.jpg";
 // import CardColumns from "react-bootstrap/CardColumns";
 // import CardRows from "react-bootstrap/CardRows";
 // import Button from "react-bootstrap/Button";
 // import GameCard from "../components/GameCard";
-
+import VideoBg from "reactjs-videobg";
+// import ogg from "./Neon.ogg";
+// import webm from "./Neon.webm";
+import mp4 from "../assets/backgrounddashboard.mp4";
+import poster from "../assets/poster.jpg";
 import Profile from "../views/profile";
 
-const Page = styled.div`
-  height: 95vh;
-  background: radial-gradient(circle at 20%, #bdbdbd -60%, #512da8 100%);
-  overflow: hidden;
-  animation: up 3s 10s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-`;
+// const Page = styled.div`
+//   height: 95vh;
+//   background: radial-gradient(circle at 20%, #bdbdbd -60%, #512da8 100%);
+//   overflow: hidden;
+//   animation: up 3s 10s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+// `;
 
 function Dashboard() {
   // Setting our component's initial state
@@ -83,175 +89,167 @@ function Dashboard() {
   }
 
   return (
-    <Page>
-      <MDBContainer>
-        <Row>
-          <Col size="md-6">
-            <br />
-            <Card
-              w-50
-              style={{
-                paddingLeft: "1%",
-                backgroundColor: "#DCDCDC",
-                borderWidth: 1,
-                borderColor: "black",
-                // width: "50rem",
-              }}
-            >
-              <Profile />
-            </Card>
-          </Col>
-          <Col size="md-6">
-            <br />
-            <Card
-              w-50
-              style={{
-                padding: "1%",
-                backgroundColor: "#DCDCDC",
-                borderWidth: 1,
-                borderColor: "black",
-                // width: "50rem",
-              }}
-            >
-              <h5>Level: 1</h5>
-              <h6>Rank: n00b</h6>
-              <img style={{ width: "10%" }} src={Badge} />
-            </Card>
-          </Col>
-        </Row>
+    // <Page >
+    <MDBContainer>
+      <VideoBg poster={poster}>
+        {/* <VideoBg.Source src={ogg} type="video/ogg" />
+        <VideoBg.Source src={webm} type="video/webm" /> */}
+        <VideoBg.Source src={mp4} type="video/mp4" />
+      </VideoBg>
+      <Row>
+        <Col size="md-6">
+          <br />
+          <Card
+            style={{
+              paddingLeft: "1%",
+              backgroundColor: "#DCDCDC",
+              borderWidth: 1,
+              borderColor: "black",
+              // width: "50rem",
+            }}
+          >
+            <Profile />
+          </Card>
+        </Col>
+        <Col size="md-3">
+          <br />
+          <Card
+            w-50
+            style={{
+              padding: "1%",
+              backgroundColor: "#DCDCDC",
+              borderWidth: 1,
+              borderColor: "black",
+              // width: "50rem",
+            }}
+          >
+            <h5>Level: 1</h5>
+            <h6>Rank: n00b</h6>
+          </Card>
+        </Col>
+        <Col size="md-3">
+          <br />
+          <Card
+            w-50
+            style={{
+              padding: "1%",
+              backgroundColor: "#DCDCDC",
+              borderWidth: 1,
+              borderColor: "black",
+              // width: "50rem",
+            }}
+          >
+            <h6>Badges:</h6>
 
-        <Row>
-          <Col size="md-3">
-            <br />
-            <Card
+            <img
+              class="mr-auto"
               style={{
-                padding: "5%",
-                backgroundColor: "#DCDCDC",
-                borderWidth: 1,
-                borderColor: "black",
+                width: "15%",
               }}
-            >
-              <h5>What Games Should I Play?</h5>
-              <form>
-                <Input
-                  onChange={handleInputChange}
-                  name="title"
-                  placeholder="Game Title (required)"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="platform"
-                  placeholder="Platform (required)"
-                />
-                <FormBtn
-                  disabled={!(formObject.platform && formObject.title)}
-                  onClick={handleFormSubmit}
-                >
-                  Submit Game
-                </FormBtn>
-              </form>
-            </Card>
-          </Col>
-          <Col size="md-3">
-            <br />
-            <Card
-              style={{
-                padding: "5%",
-                backgroundColor: "#DCDCDC",
-                borderWidth: 1,
-                borderColor: "black",
+              src={Badge}
+            />
+          </Card>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col size="md-3">
+          <br />
+          <Card
+            style={{
+              padding: "5%",
+              backgroundColor: "#DCDCDC",
+              borderWidth: 1,
+              borderColor: "black",
+            }}
+          >
+            <h5>Add Games :</h5>
+            <form>
+              <Input
+                onChange={handleInputChange}
+                name="title"
+                placeholder="Game Title (required)"
+              />
+              <Input
+                onChange={handleInputChange}
+                name="platform"
+                placeholder="Platform (required)"
+              />
+              <FormBtn
+                disabled={!(formObject.platform && formObject.title)}
+                onClick={handleFormSubmit}
+              >
+                Submit Game
+              </FormBtn>
+            </form>
+          </Card>
+          <br />
+          <Card
+            style={{
+              padding: "5%",
+              backgroundColor: "#DCDCDC",
+              borderWidth: 1,
+              borderColor: "black",
+            }}
+          >
+            <h5>Donate to the site</h5>
+            <p>All proceeds go to improving your viewing experience</p>
+            <PayPalButton
+              amount="0.01"
+              // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+              onSuccess={(details, data) => {
+                alert(
+                  "Transaction completed by " + details.payer.name.given_name
+                );
+
+                // OPTIONAL: Call your server to save the transaction
+                return fetch("/paypal-transaction-complete", {
+                  method: "post",
+                  body: JSON.stringify({
+                    orderID: data.orderID,
+                  }),
+                });
               }}
-            >
-              <h5>Games On My List :</h5>
-              {games.length ? (
-                <List>
-                  {games.map((game) => (
-                    <ListItem key={game._id}>
-                      <Link to={"/dashboard/" + game._id}>
-                        <strong>
-                          {game.title} by {game.platform}
-                        </strong>
-                      </Link>
-                      <DeleteBtn onClick={() => deleteGame(game._id)} />
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
-            </Card>
-          </Col>
-          <Col size="md-6">
-            <br />
-            <Chat>
-              <ChatDashboard />
-            </Chat>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-3">
-            <br />
-            <Card
-              style={{
-                padding: "5%",
-                backgroundColor: "#DCDCDC",
-                borderWidth: 1,
-                borderColor: "black",
-              }}
-            >
-              <h5>What Games Should I Play?</h5>
-              <form>
-                <Input
-                  onChange={handleInputChange}
-                  name="title"
-                  placeholder="Game Title (required)"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="platform"
-                  placeholder="Platform (required)"
-                />
-                <FormBtn
-                  disabled={!(formObject.platform && formObject.title)}
-                  onClick={handleFormSubmit}
-                >
-                  Submit Game
-                </FormBtn>
-              </form>
-            </Card>
-          </Col>
-          <Col size="md-3">
-            <br />
-            <Card
-              style={{
-                padding: "5%",
-                backgroundColor: "#DCDCDC",
-                borderWidth: 1,
-                borderColor: "black",
-              }}
-            >
-              <h5>Games On My List :</h5>
-              {games.length ? (
-                <List>
-                  {games.map((game) => (
-                    <ListItem key={game._id}>
-                      <Link to={"/dashboard/" + game._id}>
-                        <strong>
-                          {game.title} by {game.platform}
-                        </strong>
-                      </Link>
-                      <DeleteBtn onClick={() => deleteGame(game._id)} />
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
-            </Card>
-          </Col>
-        </Row>
-      </MDBContainer>
-    </Page>
+            />
+          </Card>
+        </Col>
+        <Col size="md-3">
+          <br />
+          <Card
+            style={{
+              padding: "5%",
+              backgroundColor: "#DCDCDC",
+              borderWidth: 1,
+              borderColor: "black",
+            }}
+          >
+            <h5>My Games :</h5>
+            {games.length ? (
+              <List>
+                {games.map((game) => (
+                  <ListItem key={game._id}>
+                    <Link to={"/dashboard/" + game._id}>
+                      <strong style={{ color: "black" }}>
+                        {game.title} by {game.platform}
+                      </strong>
+                    </Link>
+                    <DeleteBtn onClick={() => deleteGame(game._id)} />
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Card>
+        </Col>
+        <Col size="md-6">
+          <br />
+          <Chat>
+            <ChatDashboard />
+          </Chat>
+        </Col>
+      </Row>
+    </MDBContainer>
   );
 }
 export default Dashboard;
