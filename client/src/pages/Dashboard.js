@@ -3,15 +3,16 @@ import DeleteBtn from "../components/DeleteBtn";
 // import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import Chat from "../components/ChatMessages";
 import ChatDashboard from "../components/ChatDashboard";
-import InputGroup from "react-bootstrap/InputGroup";
 import Card from "react-bootstrap/Card";
+import { MDBContainer } from "mdbreact";
+import Badge from "../assets/badge.png";
 // import CardColumns from "react-bootstrap/CardColumns";
 // import CardRows from "react-bootstrap/CardRows";
 // import Button from "react-bootstrap/Button";
@@ -83,11 +84,12 @@ function Dashboard() {
 
   return (
     <Page>
-      <Container fluid>
+      <MDBContainer>
         <Row>
           <Col size="md-6">
             <br />
             <Card
+              w-50
               style={{
                 paddingLeft: "1%",
                 backgroundColor: "#DCDCDC",
@@ -97,6 +99,23 @@ function Dashboard() {
               }}
             >
               <Profile />
+            </Card>
+          </Col>
+          <Col size="md-6">
+            <br />
+            <Card
+              w-50
+              style={{
+                padding: "1%",
+                backgroundColor: "#DCDCDC",
+                borderWidth: 1,
+                borderColor: "black",
+                // width: "50rem",
+              }}
+            >
+              <h5>Level: 1</h5>
+              <h6>Rank: n00b</h6>
+              <img style={{ width: "10%" }} src={Badge} />
             </Card>
           </Col>
         </Row>
@@ -112,7 +131,7 @@ function Dashboard() {
                 borderColor: "black",
               }}
             >
-              <h1>What Games Should I Play?</h1>
+              <h5>What Games Should I Play?</h5>
               <form>
                 <Input
                   onChange={handleInputChange}
@@ -143,7 +162,7 @@ function Dashboard() {
                 borderColor: "black",
               }}
             >
-              <h1>Games On My List :</h1>
+              <h5>Games On My List :</h5>
               {games.length ? (
                 <List>
                   {games.map((game) => (
@@ -169,7 +188,69 @@ function Dashboard() {
             </Chat>
           </Col>
         </Row>
-      </Container>
+        <Row>
+          <Col size="md-3">
+            <br />
+            <Card
+              style={{
+                padding: "5%",
+                backgroundColor: "#DCDCDC",
+                borderWidth: 1,
+                borderColor: "black",
+              }}
+            >
+              <h5>What Games Should I Play?</h5>
+              <form>
+                <Input
+                  onChange={handleInputChange}
+                  name="title"
+                  placeholder="Game Title (required)"
+                />
+                <Input
+                  onChange={handleInputChange}
+                  name="platform"
+                  placeholder="Platform (required)"
+                />
+                <FormBtn
+                  disabled={!(formObject.platform && formObject.title)}
+                  onClick={handleFormSubmit}
+                >
+                  Submit Game
+                </FormBtn>
+              </form>
+            </Card>
+          </Col>
+          <Col size="md-3">
+            <br />
+            <Card
+              style={{
+                padding: "5%",
+                backgroundColor: "#DCDCDC",
+                borderWidth: 1,
+                borderColor: "black",
+              }}
+            >
+              <h5>Games On My List :</h5>
+              {games.length ? (
+                <List>
+                  {games.map((game) => (
+                    <ListItem key={game._id}>
+                      <Link to={"/dashboard/" + game._id}>
+                        <strong>
+                          {game.title} by {game.platform}
+                        </strong>
+                      </Link>
+                      <DeleteBtn onClick={() => deleteGame(game._id)} />
+                    </ListItem>
+                  ))}
+                </List>
+              ) : (
+                <h3>No Results to Display</h3>
+              )}
+            </Card>
+          </Col>
+        </Row>
+      </MDBContainer>
     </Page>
   );
 }

@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "../components/Jumbotron";
+import { Col, Row } from "../components/Grid";
 import API from "../utils/API";
-import styled from "styled-components";
-import Card from "react-bootstrap/Card";
+// import styled from "styled-components";
+import { MDBContainer } from "mdbreact";
+import VideoBg from "reactjs-videobg";
+// import ogg from "./Neon.ogg";
+// import webm from "./Neon.webm";
+import mp4 from "../assets/backgroundvideo.mp4";
+import poster from "../assets/poster.jpg";
 
-const Page = styled.div`
-  height: 100vh;
-  background: radial-gradient(circle at 70%, #bdbdbd -60%, #283593 100%);
-  overflow: hidden;
-  animation: up 3s 4s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-`;
+// const Page = styled.div`
+//   height: 100vh;
+//   background: radial-gradient(circle at 70%, #bdbdbd -60%, #283593 100%);
+//   overflow: hidden;
+//   animation: up 3s 4s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+// `;
 
 function Detail(props) {
   console.log("Detail");
@@ -27,12 +31,27 @@ function Detail(props) {
   }, [id]);
 
   return (
-    <Page>
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <br />
-            <Card style={{ padding: "1%", backgroundColor: "#DCDCDC" }}>
+    // <Page>
+    <MDBContainer>
+      <VideoBg poster={poster}>
+        {/* <VideoBg.Source src={ogg} type="video/ogg" />
+        <VideoBg.Source src={webm} type="video/webm" /> */}
+        <VideoBg.Source src={mp4} type="video/mp4" />
+      </VideoBg>
+      <Row>
+        <Col size="md-12">
+          <br />
+          <div w-50>
+            <div
+              style={{
+                padding: "1%",
+                backgroundColor: "#DCDCDC15",
+                borderWidth: 1,
+                borderColor: "black",
+                color: "white",
+                // opacity: "50%",
+              }}
+            >
               <h1>
                 <strong>Title:</strong> {game.title}
               </h1>
@@ -61,17 +80,18 @@ function Detail(props) {
               <p>
                 <strong>Rating:</strong> {game.rating}
               </p>
-            </Card>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-2">
-            <br />
-            <Link to="/dashboard">← Back to Dashboard</Link>
-          </Col>
-        </Row>
-      </Container>
-    </Page>
+            </div>
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col size="md-2">
+          <br />
+          <Link to="/dashboard">← Back to Dashboard</Link>
+        </Col>
+      </Row>
+    </MDBContainer>
+    // </Page>
   );
 }
 

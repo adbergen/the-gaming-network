@@ -1,15 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 import io from "socket.io-client";
 const PORT = process.env.PORT || 3001;
 
 export const CTX = React.createContext();
 
-const Page = styled.div`
-  height: 100vh;
-  background: radial-gradient(circle at 70%, #bdbdbd -60%, #1565c0 100%);
-  overflow: hidden;
-`;
+// const Page = styled.div`
+//   height: 100vh;
+//   background: radial-gradient(circle at 70%, #bdbdbd -60%, #1565c0 100%);
+//   overflow: hidden;
+// `;
 
 const initState = {
   Global: [
