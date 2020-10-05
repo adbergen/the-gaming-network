@@ -1,5 +1,5 @@
 <h1 align="center">
-Project 3
+The Gaming Network
 </h1>
 <h4 align="center" style="margin-bottom:10px">Be sure to star my configuration repo so you can keep up to date on any daily progress!</h4>
 <div align="center">
@@ -12,20 +12,20 @@ Project 3
 <br>
 </div>
 <p align="center"><font size="3">
-This is a application.</p>
+This is a gaming social network application.</p>
 <div align="center"><a name="menu"></a>
   <h4>
-    <a href="https://github.com/adbergen/project-3">
+    <a href="https://github.com/adbergen/the-gaming-network">
       Github Repository
     </a>
 <span> | </span>
-<a href="#">
+<a href="https://good-game2020.herokuapp.com/">
       Heroku
     </a>
   </h4>
 </div>
 
-![Screenshot of application demo](public/demo.png)
+![Screenshot of application demo](client/src/assets/demo.png)
 
 <hr>
 
@@ -68,10 +68,24 @@ Using npm:
 
 <hr>
 
+## Roadmap
+
+<ul>
+<li>Automatically detect the shipping carrier</li>
+<li>Email and user authentication</li>
+<li>Implementing an Email and SMS notification</li>
+<li>Adding a description to tracking number</li>
+<li>Ability to print and create labels for postage</li>
+<li>Implementing Google geolocation API</li>
+<li>Monetization: Advertising, Link to paypal/ venmo, Selling data</li>
+</ul>
+
+<hr>
+
 ## Contributing
 
 - Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-- Contributors: Anthony Bergen, Hojin, Miguel, & Kristian
+- Contributors: Anthony Bergen, Hojin, & Miguel
 
 <hr><hr>
