@@ -43,7 +43,7 @@ export default function Dashboard() {
   const classes = useStyles();
 
   //CTX storage
-  const { allChats, sendChatAction, user } = React.useContext(CTX);
+  const { allChats, sendChatAction, person } = React.useContext(CTX);
   // console.log({ allChats })
   const topics = Object.keys(allChats);
 
@@ -100,7 +100,7 @@ export default function Dashboard() {
             className={classes.button}
             onClick={() => {
               sendChatAction({
-                from: user,
+                from: person,
                 msg: textValue,
                 topic: activeTopic,
               });

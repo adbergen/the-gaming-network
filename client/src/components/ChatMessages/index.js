@@ -1,6 +1,8 @@
 import React from "react";
 // import styled from "styled-components";
 import io from "socket.io-client";
+import { useAuth0 } from "@auth0/auth0-react";
+
 const PORT = process.env.PORT || 3001;
 
 export const CTX = React.createContext();
@@ -83,10 +85,11 @@ export default function Store(props) {
       dispatch({ type: "RECEIVE_MESSAGE", payload: msg });
     });
   }
-  const user = "Miguel" + Math.random(100).toFixed(2);
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const person = user.name;
 
   return (
-    <CTX.Provider value={{ allChats, sendChatAction, user }}>
+    <CTX.Provider value={{ allChats, sendChatAction, person }}>
       {props.children}
     </CTX.Provider>
   );

@@ -25,6 +25,7 @@ import VideoBg from "reactjs-videobg";
 import mp4 from "../assets/backgrounddashboard.mp4";
 import poster from "../assets/poster.jpg";
 import Profile from "../views/profile";
+import Cardbackground from "../assets/cardbackground.png";
 
 // const Page = styled.div`
 //   height: 95vh;
@@ -101,59 +102,55 @@ function Dashboard() {
           <br />
           <Card
             style={{
-              paddingLeft: "1%",
-              backgroundColor: "#DCDCDC",
+              padding: "1%",
+              // backgroundImage:
+              //   "url('https://wallpaperstock.net/gray-pattern_wallpapers_33810_1280x1024.jpg')",
+
+              color: "black",
               borderWidth: 1,
-              borderColor: "black",
+              borderColor: "white",
               // width: "50rem",
             }}
           >
             <Profile />
-          </Card>
-        </Col>
-        <Col size="md-3">
-          <br />
-          <Card
-            w-50
-            style={{
-              padding: "1%",
-              backgroundColor: "#DCDCDC",
-              borderWidth: 1,
-              borderColor: "black",
-              // width: "50rem",
-            }}
-          >
-            <h5>Level: 1</h5>
-            <h6>Rank: n00b</h6>
-          </Card>
-        </Col>
-        <Col size="md-3">
-          <br />
-          <Card
-            w-50
-            style={{
-              padding: "1%",
-              backgroundColor: "#DCDCDC",
-              borderWidth: 1,
-              borderColor: "black",
-              // width: "50rem",
-            }}
-          >
-            <h6>Badges:</h6>
-
-            <img
-              class="mr-auto"
+            <br />
+            <Card
+              w-50
               style={{
-                width: "15%",
+                padding: "1%",
+                backgroundColor: "#DCDCDC",
+                borderWidth: 1,
+                borderColor: "black",
+                // width: "50rem",
               }}
-              src={Badge}
-            />
-          </Card>
-        </Col>
-      </Row>
+            >
+              <h6>Badges:</h6>
 
-      <Row>
-        <Col size="md-3">
+              <img
+                class="mr-auto"
+                style={{
+                  width: "15%",
+                }}
+                src={Badge}
+              />
+            </Card>
+            <br />
+            <Card
+              w-50
+              style={{
+                padding: "1%",
+                backgroundColor: "#DCDCDC",
+                borderWidth: 1,
+                borderColor: "black",
+                // width: "50rem",
+              }}
+            >
+              <h5>
+                Level: 1 <h5>Games Played</h5>
+              </h5>
+              <h6>Rank: n00b</h6>
+            </Card>
+          </Card>
           <br />
           <Card
             style={{
@@ -192,37 +189,6 @@ function Dashboard() {
               borderColor: "black",
             }}
           >
-            <h5>Donate to the site</h5>
-            <p>All proceeds go to improving your viewing experience</p>
-            <PayPalButton
-              amount="0.01"
-              // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
-              onSuccess={(details, data) => {
-                alert(
-                  "Transaction completed by " + details.payer.name.given_name
-                );
-
-                // OPTIONAL: Call your server to save the transaction
-                return fetch("/paypal-transaction-complete", {
-                  method: "post",
-                  body: JSON.stringify({
-                    orderID: data.orderID,
-                  }),
-                });
-              }}
-            />
-          </Card>
-        </Col>
-        <Col size="md-3">
-          <br />
-          <Card
-            style={{
-              padding: "5%",
-              backgroundColor: "#DCDCDC",
-              borderWidth: 1,
-              borderColor: "black",
-            }}
-          >
             <h5>My Games :</h5>
             {games.length ? (
               <List>
@@ -247,6 +213,52 @@ function Dashboard() {
           <Chat>
             <ChatDashboard />
           </Chat>
+          <br />
+          <Card
+            style={{
+              padding: "5%",
+              backgroundColor: "#DCDCDC",
+              borderWidth: 1,
+              borderColor: "black",
+            }}
+          >
+            <h5>Donate to the site</h5>
+            <p>All proceeds go to improving your viewing experience</p>
+            <PayPalButton
+              amount="0.01"
+              // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+              onSuccess={(details, data) => {
+                alert(
+                  "Transaction completed by " + details.payer.name.given_name
+                );
+
+                // OPTIONAL: Call your server to save the transaction
+                return fetch("/paypal-transaction-complete", {
+                  method: "post",
+                  body: JSON.stringify({
+                    orderID: data.orderID,
+                  }),
+                });
+              }}
+            />
+          </Card>
+        </Col>
+        <Col size="md-3">
+          <br />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col size="md-3">
+          <br />
+        </Col>
+        <Col size="md-3">
+          <br />
+
+          <br />
+        </Col>
+        <Col size="md-3">
+          <br />
         </Col>
       </Row>
     </MDBContainer>
