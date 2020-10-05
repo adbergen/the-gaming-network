@@ -102,13 +102,13 @@ function Dashboard() {
           <br />
           <Card
             style={{
-              padding: "1%",
-              // backgroundImage:
-              //   "url('https://wallpaperstock.net/gray-pattern_wallpapers_33810_1280x1024.jpg')",
-
+              padding: "5%",
+              backgroundImage:
+                "url('https://i2.wp.com/files.123freevectors.com/wp-content/original/131674-purple-and-white-polygon-pattern-background.jpg?w=800&q=95')",
+              // backgroundColor: "#DCDCDC",
               color: "black",
               borderWidth: 1,
-              borderColor: "white",
+              borderColor: "black",
               // width: "50rem",
             }}
           >
@@ -118,7 +118,7 @@ function Dashboard() {
               w-50
               style={{
                 padding: "1%",
-                backgroundColor: "#DCDCDC",
+
                 borderWidth: 1,
                 borderColor: "black",
                 // width: "50rem",
@@ -130,6 +130,8 @@ function Dashboard() {
                 class="mr-auto"
                 style={{
                   width: "15%",
+                  borderWidth: 1,
+                  borderColor: "black",
                 }}
                 src={Badge}
               />
@@ -139,15 +141,13 @@ function Dashboard() {
               w-50
               style={{
                 padding: "1%",
-                backgroundColor: "#DCDCDC",
+                // backgroundColor: "#DCDCDC",
                 borderWidth: 1,
                 borderColor: "black",
                 // width: "50rem",
               }}
             >
-              <h5>
-                Level: 1 <h5>Games Played</h5>
-              </h5>
+              <h5>Level: 1</h5>
               <h6>Rank: n00b</h6>
             </Card>
           </Card>
@@ -155,7 +155,8 @@ function Dashboard() {
           <Card
             style={{
               padding: "5%",
-              backgroundColor: "#DCDCDC",
+              backgroundImage:
+                "url('https://i2.wp.com/files.123freevectors.com/wp-content/original/131674-purple-and-white-polygon-pattern-background.jpg?w=800&q=95')",
               borderWidth: 1,
               borderColor: "black",
             }}
@@ -184,7 +185,8 @@ function Dashboard() {
           <Card
             style={{
               padding: "5%",
-              backgroundColor: "#DCDCDC",
+              backgroundImage:
+                "url('https://i2.wp.com/files.123freevectors.com/wp-content/original/131674-purple-and-white-polygon-pattern-background.jpg?w=800&q=95')",
               borderWidth: 1,
               borderColor: "black",
             }}
