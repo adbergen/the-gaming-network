@@ -5,9 +5,9 @@ The Gaming Network
 <div align="center">
   <h4>
     </a>
-    <a href="https://github.com/adbergen/project-3/stargazers"><img src="https://img.shields.io/github/stars/adbergen/project-3.svg?style=plasticr"/></a>
-    <a href="https://github.com/adbergen/project-3/commits/master"><img src="https://img.shields.io/github/last-commit/adbergen/project-3.svg?style=plasticr"/></a>
-        <a href="https://github.com/adbergen/project-3/commits/master"><img src="https://img.shields.io/github/commit-activity/y/adbergen/project-3.svg?style=plasticr"/></a>
+    <a href="https://github.com/adbergen/the-gaming-network/stargazers"><img src="https://img.shields.io/github/stars/adbergen/the-gaming-network.svg?style=plasticr"/></a>
+    <a href="https://github.com/adbergen/the-gaming-network/commits/master"><img src="https://img.shields.io/github/last-commit/adbergen/the-gaming-network.svg?style=plasticr"/></a>
+        <a href="https://github.com/adbergen/the-gaming-network/commits/master"><img src="https://img.shields.io/github/commit-activity/y/adbergen/the-gaming-network.svg?style=plasticr"/></a>
 </h4>
 <br>
 </div>
@@ -52,18 +52,19 @@ Using npm:
 
 ## Usage
 
-<p> This application is designed to allow an employee or manager to view an employee directory. When the user loads the page, a table of employees is displayed allowing the user to sort by name, phone, email, or dob. The user can also filter by name via the search field.
+<p> This application is designed to allow user to find friends to play games with via a chat window that contains several rooms. The user can also keep track of games and details.
 
 <hr>
 
 ## Technologies
 
 <ul>
-<li>HTML, CSS, Bootstrap</li>
+<li>HTML, CSS, React-Bootstrap, MDB, material-UI</li>
 <li>Javascript, jQuery</li>
-<li>React, node.js, Express</li>
+<li>MongoDB</li>
+<li>React, node.js, Express, Axios</li>
 <li>GitHub, Heroku</li>
-<li>Socket.io, Auth0</li>
+<li>Socket.io, Auth0, react-PaypalButton</li>
 </ul>
 
 <hr>
@@ -71,13 +72,13 @@ Using npm:
 ## Roadmap
 
 <ul>
-<li>Automatically detect the shipping carrier</li>
-<li>Email and user authentication</li>
-<li>Implementing an Email and SMS notification</li>
-<li>Adding a description to tracking number</li>
-<li>Ability to print and create labels for postage</li>
-<li>Implementing Google geolocation API</li>
-<li>Monetization: Advertising, Link to paypal/ venmo, Selling data</li>
+<li>Mobile App Store</li>
+<li>Improve Chat Experience</li>
+<li>Friend's List</li>
+<li>Badges and Incrementing Levels</li>
+<li>Purchase Page for Games and Merchendise</li>
+<li>Live Streaming</li>
+<li>Reviews</li>
 </ul>
 
 <hr>
