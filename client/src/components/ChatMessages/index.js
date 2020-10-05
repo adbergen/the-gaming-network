@@ -15,17 +15,17 @@ export const CTX = React.createContext();
 
 const initState = {
   Global: [
-    { from: "Miguel", msg: "Did you guys see the trailer for cyberpunk?" },
+    { from: "Billy", msg: "Did you guys see the trailer for cyberpunk?" },
     {
       from: "Ant",
       msg:
-        "Hell yeah! I cannot wait to play it! I hope they do not push the release data back again",
+        "Hell yeah! I cannot wait to play it! I hope they do not push the release date back again",
     },
     { from: "Hojin", msg: "Whats up nerds" },
   ],
   FindPlayers: [
     { from: "Hojin", msg: "Who wants to play Among Us?" },
-    { from: "Miguel", msg: "Ill play! Its so much fun being the imposter." },
+    { from: "Kelly", msg: "Ill play! Its so much fun being the imposter." },
     { from: "Ant", msg: "Whats your steam Id? I want to play with you guys" },
     {
       from: "Kristen",
@@ -35,7 +35,7 @@ const initState = {
   MMO: [
     { from: "Bobby", msg: "World of Warcraft is the best MMO of all time" },
     { from: "Ana", msg: "NO WAY Elder Scrolls Online is superior" },
-    { from: "Miguel", msg: "Who is old enought to remember PSU?" },
+    { from: "Lane", msg: "Who is old enought to remember PSU?" },
   ],
   Retro: [
     {
@@ -51,7 +51,7 @@ const initState = {
     {
       from: "Jack2",
       msg:
-        "Im hosting a Mele tourny at my local shop. Anyone from Union County NJ want to participate? ",
+        "Im hosting a Mele tourny at my local shop. Anyone from Union County NJ and wants to participate? ",
     },
   ],
 };

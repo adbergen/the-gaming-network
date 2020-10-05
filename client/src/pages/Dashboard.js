@@ -124,7 +124,22 @@ function Dashboard() {
                 // width: "50rem",
               }}
             >
-              <h6>Badges:</h6>
+              <h6>Badges:
+              
+              {" "}
+                  <i class="fab fa-steam"></i>
+                  {"  "}
+                  <i class="fab fa-xbox"></i>
+                  {"  "}
+                  <i class="fab fa-playstation"></i>
+                  {"  "}
+                  <i class="fab fa-twitch"></i>
+                  {"  "}
+                  <i class="fas fa-headset"></i>
+                  {"  "}
+              
+                </h6>
+              
 
               <img
                 class="mr-auto"
@@ -198,7 +213,7 @@ function Dashboard() {
                   <ListItem key={game._id}>
                     <Link to={"/dashboard/" + game._id}>
                       <strong style={{ color: "black" }}>
-                        {game.title} by {game.platform}
+                        {game.title} on {game.platform}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deleteGame(game._id)} />
