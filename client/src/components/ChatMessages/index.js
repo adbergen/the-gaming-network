@@ -80,7 +80,7 @@ export default function Store(props) {
   const [allChats, dispatch] = React.useReducer(reducer, initState);
 
   if (!socket) {
-    socket = io(":" + PORT);
+    socket = io("https://good-game2020.herokuapp.com/");
     socket.on("chat message", function (msg) {
       dispatch({ type: "RECEIVE_MESSAGE", payload: msg });
     });
