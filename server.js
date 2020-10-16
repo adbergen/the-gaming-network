@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 3001;
 const http = require("http").Server(app);
 const socket = require("socket.io");
 
+require("dotenv").config();
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
