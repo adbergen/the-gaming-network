@@ -56,6 +56,8 @@ function Detail(props) {
                 <strong>Title:</strong> {game.title}
               </h1>
               <br />
+              <img src={game.image} />
+              <br />
               <p>
                 <strong>Platform:</strong> {game.platform}
               </p>
@@ -79,9 +81,6 @@ function Detail(props) {
               </p>
               <p>
                 <strong>Rating:</strong> {game.rating}
-              </p>
-              <p>
-                <strong>Image:</strong> {game.image}
               </p>
             </div>
           </div>
