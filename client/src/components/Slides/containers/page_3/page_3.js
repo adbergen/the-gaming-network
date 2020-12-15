@@ -2,11 +2,11 @@ import React from "react";
 
 import styles from "./page_3.module.css";
 
-import pic6 from "../../img/pic6.png";
-import First from "../../components/Slides/FirstSlide";
-import Last from "../../components/last/last";
-import Mid from "../../components/mid/mid";
-import PageThree from "../../components/page_3/page_3";
+import pic6 from "../../../../assets/pic6.png";
+import First from "../../FirstSlide";
+import Last from "../../last/last";
+import Mid from "../../mid/mid";
+import PageThree from "../../page_3/page_3";
 
 class Page3 extends React.Component {
   render() {

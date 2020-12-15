@@ -44,7 +44,7 @@
   height: 270px;
   top: 40%;
   width: 100%;
-  background-image: url("../../img/pic3.jpg");
+  background-image: url("../../../assets/pic3.jpg");
   background-size: cover;
   background-position: top 10% center;
 }

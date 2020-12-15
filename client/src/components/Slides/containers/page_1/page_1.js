@@ -2,11 +2,11 @@ import React from "react";
 
 import styles from "./page_1.module.css";
 
-import pic1 from "../../img/pic1.png";
-import First from "../../components/Slides/FirstSlide";
-import Last from "../../components/last/last";
-import Mid from "../../components/mid/mid";
-import PageOne from "../../components/page_1/page_1";
+import pic1 from "../../../../assets/pic1.png";
+import First from "../../FirstSlide";
+import Last from "../../last/last";
+import Mid from "../../mid/mid";
+import PageOne from "../../page_1/page_1";
 
 class Page1 extends React.Component {
   render() {
