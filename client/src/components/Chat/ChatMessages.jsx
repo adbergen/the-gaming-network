@@ -1,17 +1,10 @@
 import React from "react";
-// import styled from "styled-components";
 import io from "socket.io-client";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const PORT = process.env.PORT || 3001;
 
 export const CTX = React.createContext();
-
-// const Page = styled.div`
-//   height: 100vh;
-//   background: radial-gradient(circle at 70%, #bdbdbd -60%, #1565c0 100%);
-//   overflow: hidden;
-// `;
 
 const initState = {
   Global: [

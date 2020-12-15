@@ -1,7 +1,5 @@
 import React from "react";
-
 import styles from "./page_2.module.css";
-
 import pic4 from "../../../../assets/pic4.png";
 import First from "../../FirstSlide";
 import Last from "../../last/last";
