@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./page_1.module.css";
 
 import pic1 from "../../img/pic1.png";
-import First from "../../components/first/first";
+import First from "../../components/Slides/FirstSlide";
 import Last from "../../components/last/last";
 import Mid from "../../components/mid/mid";
 import PageOne from "../../components/page_1/page_1";

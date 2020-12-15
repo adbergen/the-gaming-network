@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DeleteBtn from "../components/DeleteBtn";
+import DeleteBtn from "../components/DeleteButton";
 // import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
@@ -8,8 +8,8 @@ import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 // import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
-import Chat from "../components/ChatMessages";
-import ChatDashboard from "../components/ChatDashboard";
+import Chat from "../components/Chat/ChatMessages";
+import ChatDashboard from "../components/Chat/ChatDashboard";
 import Card from "react-bootstrap/Card";
 import { MDBContainer } from "mdbreact";
 import Badge from "../assets/badge.png";
@@ -124,22 +124,18 @@ function Dashboard() {
                 // width: "50rem",
               }}
             >
-              <h6>Badges:
-              
-              {" "}
-                  <i class="fab fa-steam"></i>
-                  {"  "}
-                  <i class="fab fa-xbox"></i>
-                  {"  "}
-                  <i class="fab fa-playstation"></i>
-                  {"  "}
-                  <i class="fab fa-twitch"></i>
-                  {"  "}
-                  <i class="fas fa-headset"></i>
-                  {"  "}
-              
-                </h6>
-              
+              <h6>
+                Badges: <i class="fab fa-steam"></i>
+                {"  "}
+                <i class="fab fa-xbox"></i>
+                {"  "}
+                <i class="fab fa-playstation"></i>
+                {"  "}
+                <i class="fab fa-twitch"></i>
+                {"  "}
+                <i class="fas fa-headset"></i>
+                {"  "}
+              </h6>
 
               <img
                 class="mr-auto"
@@ -216,7 +212,10 @@ function Dashboard() {
                         {game.title} on {game.platform}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => deleteGame(game._id)} />
+                    <DeleteBtn
+                      style={{ float: "right", color: "#e74944" }}
+                      onClick={() => deleteGame(game._id)}
+                    />
                   </ListItem>
                 ))}
               </List>

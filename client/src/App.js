@@ -5,8 +5,8 @@ import Dashboard from "./pages/Dashboard";
 import Detail from "./pages/Detail";
 
 import NoMatch from "./pages/NoMatch";
-import NavBar from "./components/Nav/nav-bar";
-import Loading from "./components/Loading/loading";
+import NavBar from "./components/NavBar";
+import Loading from "./components/Loading";
 import Home from "./pages/Home";
 import ExternalApi from "./views/external-api";
 
@@ -35,13 +35,6 @@ const App = () => {
               <Detail />
             </Route>
           )}
-          {/* {isAuthenticated && (
-            <Route exact path={("/", "/chat")}>
-              <Chat>
-                <ChatDashboard />
-              </Chat>
-            </Route>
-          )} */}
           <Route exact path={"/external-api"}>
             <ExternalApi />
           </Route>
