@@ -2,12 +2,11 @@ import React from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
 import { useAuth0 } from "@auth0/auth0-react";
-import LogoutButton from "../logout-button/logout-button";
-import LoginButton from "../login-button/login-button";
-import "./style.css";
-import logo from "../../assets/logo.webp";
+import LogoutButton from "./LogoutButton";
+import LoginButton from "./LoginButton";
+import logo from "../assets/logo.webp";
 import Image from "react-bootstrap/Image";
-import ProfileWelcome from "../../views/profilewelcome";
+import ProfileWelcome from "../views/ProfileWelcome";
 
 const MainNav = () => {
   const { isAuthenticated } = useAuth0();
