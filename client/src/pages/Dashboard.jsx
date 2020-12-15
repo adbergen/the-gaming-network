@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import DeleteBtn from "../components/DeleteButton";
-// import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { List, ListItem } from "../components/List/List";
 import { Input, FormBtn } from "../components/Form";
-// import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import Chat from "../components/Chat/ChatMessages";
 import ChatDashboard from "../components/Chat/ChatDashboard";
@@ -14,30 +12,14 @@ import Card from "react-bootstrap/Card";
 import { MDBContainer } from "mdbreact";
 import Badge from "../assets/badge.png";
 import { PayPalButton } from "react-paypal-button-v2";
-import Background from "../assets/poster.jpg";
-// import CardColumns from "react-bootstrap/CardColumns";
-// import CardRows from "react-bootstrap/CardRows";
-// import Button from "react-bootstrap/Button";
-// import GameCard from "../components/GameCard";
 import VideoBg from "reactjs-videobg";
-// import ogg from "./Neon.ogg";
-// import webm from "./Neon.webm";
 import mp4 from "../assets/backgrounddashboard.mp4";
 import poster from "../assets/poster.jpg";
 import Profile from "../views/profile";
-import Cardbackground from "../assets/cardbackground.png";
-
-// const Page = styled.div`
-//   height: 95vh;
-//   background: radial-gradient(circle at 20%, #bdbdbd -60%, #512da8 100%);
-//   overflow: hidden;
-//   animation: up 3s 10s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-// `;
 
 function Dashboard() {
   // Setting our component's initial state
   const [games, setGames] = useState([]);
-
   const [formObject, setFormObject] = useState({});
   const { user } = useAuth0();
   user && console.log(user);
@@ -75,7 +57,6 @@ function Dashboard() {
 
   // When the form is submitted, use the API.savegame method to save the game data
   // Then reload games from the database
-
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title && formObject.platform) {
@@ -90,11 +71,8 @@ function Dashboard() {
   }
 
   return (
-    // <Page >
     <MDBContainer>
       <VideoBg poster={poster}>
-        {/* <VideoBg.Source src={ogg} type="video/ogg" />
-        <VideoBg.Source src={webm} type="video/webm" /> */}
         <VideoBg.Source src={mp4} type="video/mp4" />
       </VideoBg>
       <Row>
@@ -105,11 +83,9 @@ function Dashboard() {
               padding: "5%",
               backgroundImage:
                 "url('https://i2.wp.com/files.123freevectors.com/wp-content/original/131674-purple-and-white-polygon-pattern-background.jpg?w=800&q=95')",
-              // backgroundColor: "#DCDCDC",
               color: "black",
               borderWidth: 1,
               borderColor: "black",
-              // width: "50rem",
             }}
           >
             <Profile />
@@ -118,10 +94,8 @@ function Dashboard() {
               w-50
               style={{
                 padding: "1%",
-
                 borderWidth: 1,
                 borderColor: "black",
-                // width: "50rem",
               }}
             >
               <h6>
@@ -136,7 +110,6 @@ function Dashboard() {
                 <i class="fas fa-headset"></i>
                 {"  "}
               </h6>
-
               <img
                 class="mr-auto"
                 style={{
@@ -152,10 +125,8 @@ function Dashboard() {
               w-50
               style={{
                 padding: "1%",
-                // backgroundColor: "#DCDCDC",
                 borderWidth: 1,
                 borderColor: "black",
-                // width: "50rem",
               }}
             >
               <h5>Level: 1</h5>
@@ -247,7 +218,6 @@ function Dashboard() {
                 alert(
                   "Transaction completed by " + details.payer.name.given_name
                 );
-
                 // OPTIONAL: Call your server to save the transaction
                 return fetch("/paypal-transaction-complete", {
                   method: "post",
@@ -263,14 +233,12 @@ function Dashboard() {
           <br />
         </Col>
       </Row>
-
       <Row>
         <Col size="md-3">
           <br />
         </Col>
         <Col size="md-3">
           <br />
-
           <br />
         </Col>
         <Col size="md-3">

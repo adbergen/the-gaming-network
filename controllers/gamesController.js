@@ -43,22 +43,6 @@ async function gameSearch({ title, platform, userEmail }) {
   }
   console.log("API Results", dbResult);
   return dbResult;
-
-  // axios(config)
-  // .then(function (response) {
-  //   console.log(response.data);
-  //   var result = response.data.result;
-  //   db.Game.create({
-  //     title: result.title,
-  //     description: result.description,
-  //     releaseDate: result.releaseDate,
-  //   }).then(function (dbResult) {
-  //     console.log("dbResult", dbResult);
-  //   });
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
 }
 
 // Defining methods for the GamesController
@@ -115,10 +99,5 @@ module.exports = {
     var dbResult = await gameSearch(req.body);
     console.log("saveGame dbResult", dbResult);
     return res.json(dbResult);
-
-    // db.Game.findById({ _id: req.params.id })
-    //   .then((dbModel) => dbModel.remove())
-    //   .then((dbModel) => res.json(dbModel))
-    //   .catch((err) => res.status(422).json(err));
   },
 };

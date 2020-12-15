@@ -16,15 +16,6 @@ const page_1 = (props) => {
       </div>
       <div className={styles.mid}>
         <div className={styles.mid_heading}></div>
-        {/* <div className={styles.mid_card}>
-          <div className={styles.mid_card_title}>
-            This is part of<br></br>
-            <span>the button link on the bottom right</span>
-          </div>
-          <div className={styles.mid_card_arrow}>
-            <span className="fa fa-long-arrow-right"></span>
-          </div>
-        </div> */}
       </div>
       <div className={styles.last}>
         <div>HAS ARRIVED</div>

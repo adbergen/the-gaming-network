@@ -19,15 +19,6 @@ const page_2 = (props) => {
           <span>CONNECT</span>
           Meet fellow gamers that play the games you love.
         </div>
-        {/* <div className={styles.last_card}>
-          <div className={styles.last_card_title}>
-            Check out our new <br></br>
-            <span>collection</span>
-          </div>
-          <div className={styles.last_card_arrow}>
-            <span className="fa fa-long-arrow-right"></span>
-          </div>
-        </div> */}
       </div>
     </div>
   );

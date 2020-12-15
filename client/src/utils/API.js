@@ -19,16 +19,9 @@ export default {
   saveGame: function (gameData) {
     console.log("saveGame", gameData);
     return axios.post("/api/games", gameData);
-
   },
   getGamesByUser: function (email) {
-    console.log("user")
+    console.log("user");
     return axios.get("/api/games/user/" + email);
-  }
-  // getTitle: function (title, platform) {
-  //   return axios.post("/api/games/title", {
-  //     title: title,
-  //     platform: platform,
-  //   });
-  // },
+  },
 };

@@ -2,25 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import API from "../utils/API";
-// import styled from "styled-components";
 import { MDBContainer } from "mdbreact";
 import VideoBg from "reactjs-videobg";
-// import ogg from "./Neon.ogg";
-// import webm from "./Neon.webm";
 import mp4 from "../assets/backgroundvideo.mp4";
 import poster from "../assets/poster.jpg";
-
-// const Page = styled.div`
-//   height: 100vh;
-//   background: radial-gradient(circle at 70%, #bdbdbd -60%, #283593 100%);
-//   overflow: hidden;
-//   animation: up 3s 4s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-// `;
 
 function Detail(props) {
   console.log("Detail");
   const [game, setGame] = useState({});
-
   // When this component mounts, grab the book with the _id of props.match.params.id
   // e.g. localhost:3000/games/599dcb67f0f16317844583fc
   const { id } = useParams();
@@ -31,11 +20,8 @@ function Detail(props) {
   }, [id]);
 
   return (
-    // <Page>
     <MDBContainer>
       <VideoBg poster={poster}>
-        {/* <VideoBg.Source src={ogg} type="video/ogg" />
-        <VideoBg.Source src={webm} type="video/webm" /> */}
         <VideoBg.Source src={mp4} type="video/mp4" />
       </VideoBg>
       <Row>
@@ -49,7 +35,6 @@ function Detail(props) {
                 borderWidth: 1,
                 borderColor: "black",
                 color: "white",
-                // opacity: "50%",
               }}
             >
               <h1>
@@ -93,7 +78,6 @@ function Detail(props) {
         </Col>
       </Row>
     </MDBContainer>
-    // </Page>
   );
 }
 
