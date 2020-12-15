@@ -4,7 +4,7 @@ import DeleteBtn from "../components/DeleteButton";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import { List, ListItem } from "../components/List/List";
 import { Input, FormBtn } from "../components/Form";
 // import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";

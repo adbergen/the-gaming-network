@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import "./Home.css";
-
 import Page1 from "../components/Slides/containers/page_1/page_1";
 import Page2 from "../components/Slides/containers/page_2/page_2";
 import Page3 from "../components/Slides/containers/page_3/page_3";
@@ -21,7 +19,9 @@ function Home() {
   }, []);
 
   return repeat ? (
-    <div className="App">
+    <div style={{ boxSizing: "border-box",
+      height: "100vh",
+      overflow: "hidden" }} className="App">
       <Page1 />
       <Page2 />
       <Page3 />
